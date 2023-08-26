@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            color: black;
+            text-align: center;
+            text-transform: uppercase; /* Capitalize all text */
+        }
+        body.dark-mode {
+            background-color: #262626;
+            color: white;
+        }
+        .header {
+            background-color: #FFD843;
+            color: black;
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .main-menu {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .main-menu a {
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+            color: black;
+        }
+        .main-menu a:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .dark-mode-button {
+            background-color: transparent;
+            border: none;
+            color: black;
+            cursor: pointer;
+            font-size: 18px;
+            transition: color 0.3s ease;
+            margin-top: 10px;
+        }
+        .dark-mode-button:hover {
+            color: #FFD843;
+        }
+        .footer {
+            background-color: #FFD843;
+            color: black;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            width: 100%;
+            bottom: 0px;
+            margin-top: 20px;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            z-index: 999;
+            border-radius: 25%;
+        }
+        .logo img {
+            width: 50%;
+        }
+        
+        
+        
+        .read-more-button {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #FFD843;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Adding transition for smooth effect */
+    font-size: 14px;
+    text-decoration: none; /* Remove underline from the button */
+}
+
+/* Styles for dark mode */
+.read-more-button:hover {
+    background-color: #FFC81F; /* Change background color on hover */
+    transform: scale(1.05); /* Add a slight scale effect on hover */
+}
+
+/* Styles for dark mode */
+body.dark-mode .read-more-button {
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    
+}
+
+/* Styles for dark mode */
+body.dark-mode .read-more-button {
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    color: white; /* Add this line to change text color in dark mode */
+}
+
+/* Apply styles when the dark mode button is hovered */
+body.dark-mode .read-more-button:hover {
+    background-color: rgba(0, 0, 0, 0.3); /* Change background color on hover */
+    transform: scale(1.1); /* Add a slightly larger scale effect on hover */
+}
+        
+    </style>
+    
+    
+    
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="https://i.ibb.co/NyxrmGp/Nubis-Manga-Icon-2.png" alt="Logo">
+        </div>
+        <div class="main-menu">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Nubis.html" style="color: white;">Home</a> |
+            <a href="#" style="color: white;">About</a> |
+            <a href="#" style="color: white;">Contact</a> |
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Manga%20Library.html" style="color: white;">Library</a>
+        </div>
+        <button class="dark-mode-button" id="darkModeToggle">🌑</button>
+    </div>
+
+    <script>
+        const darkModeToggle = document.getElementById("darkModeToggle");
+
+        darkModeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+
+
+
+ <style>
+   
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (head content) ... -->
+    <style>
+        /* ... (previous styles) ... */
+        
+        /* New styles for the manga library */
+        .manga-library {
+            background-color: #f4f4f4;
+            padding: 2rem 0;
+            text-align: center; /* Center the section content */
+        }
+        
+        .manga-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .manga-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: calc(50% - 20px); /* Two cards per row with a 20px gap */
+    cursor: pointer; /* Add cursor pointer to indicate clickable */
+    transition: transform 0.2s ease; /* Add transition for smooth size change */
+}
+
+/* Apply styles when the card is hovered */
+.manga-card:hover {
+    transform: scale(1.05); /* Enlarge the card on hover */
+}
+
+        }
+        
+        .manga-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .manga-info {
+            padding: 1rem;
+        }
+        
+        .manga-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .manga-description {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- ... (header, banner, posts) ... -->
+
+  <!-- Manga Library Section -->
+<section class="manga-library">
+    <h2 class="section-title">Manga Library</h2>
+    <div class="manga-list">
+        <!-- Manga Cards -->
+        <div class="manga-card">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Return%20of%20the%20Mount%20Hua%20Sect.html">
+                <img src="https://asura.nacm.xyz/wp-content/uploads/2021/03/cover.jpg" alt="Manga 1">
+            </a>
+            <div class="manga-info">
+                <h3 class="manga-title">The Return of the Mount Hua Sect</h3>
+                <p class="manga-description">Chung Myung, The 13th Disciple of the Mount Hua Sect...</p>
+                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Return%20of%20the%20Mount%20Hua%20Sect.html" class="read-more-button">Read more</a>
+            </div>
+        </div>
+        <div class="manga-card">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Legend%20of%20Asura%20-%20The%20Venom%20Dragon.html">
+                <img src="https://asura.nacm.xyz/wp-content/uploads/2021/02/Illustration4.jpg" alt="Manga 2">
+            </a>
+            <div class="manga-info">
+                <h3 class="manga-title">Legends of Asura - The Venom Dragon</h3>
+                <p class="manga-description">The long history of the Medical Sect is followed by complete and utter annihilation...</p>
+                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Legend%20of%20Asura%20-%20The%20Venom%20Dragon.html" class="read-more-button">Read more</a>
+            </div>
+        </div>
+        <div class="manga-card">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Novels%20Extra%20(Remake).html">
+                <img src="https://asura.nacm.xyz/wp-content/uploads/2022/06/novelextraCover02.png" alt="Manga 3">
+            </a>
+            <div class="manga-info">
+                <h3 class="manga-title">The Novels Extra (Remake)</h3>
+                <p class="manga-description">BILLIONS OF CHARACTERS EXIST INSIDE THE SINGLE WORLD OF A NOVEL...</p>
+                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Novels%20Extra%20(Remake).html" class="read-more-button">Read more</a>
+            </div>
+        </div>
+        <div class="manga-card">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Omniscient%20Readers%20Viewpoint.html">
+                <img src="https://asura.nacm.xyz/wp-content/uploads/2020/09/ORV03.png" alt="Manga 4">
+            </a>
+            <div class="manga-info">
+                <h3 class="manga-title">Omniscient Readers Viewpoint</h3>
+                <p class="manga-description">‘THIS IS A DEVELOPMENT THAT I KNOW OF.’ THE MOMENT HE THOUGHT THAT THE WORLD HAD BEEN DESTROYED...</p>
+                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Omniscient%20Readers%20Viewpoint.html" class="read-more-button">Read more</a>
+            </div>
+        </div>
+        <div class="manga-card">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/IRL%20Quest.html">
+                <img src="https://flamescans.org/wp-content/uploads/2021/06/IRLQcover.jpg" alt="Manga 5">
+            </a>
+            <div class="manga-info">
+                <h3 class="manga-title">IRL Quest</h3>
+                <p class="manga-description">DUE TO THREATS FROM A BULLY TO GET A GAME ITEM, HA DO-WAN DIES AS AN UNFORTUNATE GAME...</p>
+                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/IRL%20Quest.html" class="read-more-button">Read more</a>
+            </div>
+        </div>
+        <div class="manga-card">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Jungle%20Juice.html">
+                <img src="https://flamescans.org/wp-content/uploads/2021/06/JJ_S2_COVER.png" alt="Manga 6">
+            </a>
+            <div class="manga-info">
+                <h3 class="manga-title">Jungle Juice</h3>
+                <p class="manga-description">SUCHAN JANG IS AN EXTRAORDINARY COLLEGE STUDENT AT THE TOP OF THE SOCIAL FOOD CHAIN...</p>
+                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Jungle%20Juice.html" class="read-more-button">Read more</a>
+            </div>
+        </div>
+        <div class="manga-card">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/I%20Raised%20A%20Black%20Dragon.html">
+                <img src="https://flamescans.org/wp-content/uploads/2021/11/black-dragon-cover-with-title.png" alt="Manga 6">
+            </a>
+            <div class="manga-info">
+                <h3 class="manga-title">I Raised A Black Dragon</h3>
+                <p class="manga-description">THE WITCH, ELEONORA ASIL, HAS FIFTEEN PREVIOUS CONVICTIONS. AND THE TRANSMIGRATOR, NOAH PARK...</p>
+                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/I%20Raised%20A%20Black%20Dragon.html" class="read-more-button">Read more</a>
+            </div>
+        </div>
+        <div class="manga-card">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Study%20Group.html">
+                <img src="https://arenascan.com/wp-content/uploads/2023/05/Study-Group.webp" alt="Manga 6">
+            </a>
+            <div class="manga-info">
+                <h3 class="manga-title">Study Group</h3>
+                <p class="manga-description">NICKNAMED THE “SCHOOL FOR FUTURE CRIMINALS,” YUSUNG TECHNICAL HIGH SCHOOL MAY NOT...</p>
+                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Study%20Group.html" class="read-more-button">Read more</a>
+            </div>
+        </div>
+        <div class="manga-card">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/How%20to%20Fight.html">
+                <img src="https://mangadex.org/covers/d2df017b-c003-4de6-9625-4f1fba7aef97/4602ab68-0eb7-42a3-bfba-5d90ec19ca40.jpg.512.jpg" alt="Manga 6">
+            </a>
+            <div class="manga-info">
+                <h3 class="manga-title">How to Fight</h3>
+                <p class="manga-description">GOOD FOR NOTHING YOO HOBIN IS ALWAYS BULLIED BY STUDENTS WHO FEEL SUPERIOR TO HIM, YET HE...</p>
+                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/How%20to%20Fight.html" class="read-more-button">Read more</a>
+            </div>
+        </div>
+<div class="manga-card">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Blue%20Lock.html">
+                <img src="https://mangadex.org/covers/4141c5dc-c525-4df5-afd7-cc7d192a832f/08e1e33e-50c3-49a4-a196-039b62cf7b4b.jpg.512.jpg" alt="Manga 1">
+            </a>
+            <div class="manga-info">
+                <h3 class="manga-title">The Return of the Mount Hua Sect</h3>
+                <p class="manga-description">Chung Myung, The 13th Disciple of the Mount Hua Sect...</p>
+                <a href="ffile:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Blue%20Lock.html" class="read-more-button">Read more</a>
+            </div>
+        </div>
+<div class="manga-card">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Nano%20Machine.html">
+                <img src="https://toonily.com/wp-content/uploads/2021/07/Read-Nano-Machine-manhwa-free-224x320.jpg" alt="Manga 1">
+            </a>
+            <div class="manga-info">
+                <h3 class="manga-title">Nano Machine</h3>
+                <p class="manga-description">AFTER BEING HELD IN DISDAIN AND HAVING HIS LIFE PUT IN DANGER, AN ORPHAN FROM THE...</p>
+                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Nano%20Machine.html" class="read-more-button">Read more</a>
+            </div>
+        </div>
+
+        
+        <!-- Repeat the above structure for the remaining manga cards -->
+        <!-- ... (add more manga cards here) ... -->
+    </div>
+</section>
+
+
+    <!-- ... (script) ... -->
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (head content) ... -->
+    <style>
+    
+    /* Common styles for both light and dark modes */
+.manga-library {
+    background-color: #f4f4f4;
+    padding: 2rem 0;
+    text-align: center; /* Center the section content */
+}
+
+.manga-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.manga-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 240px;
+    cursor: pointer; /* Add cursor pointer to indicate clickable */
+}
+
+.manga-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.manga-info {
+    padding: 1rem;
+}
+
+.manga-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Common styles for both light and dark modes */
+.manga-description {
+    font-size: 14px;
+    line-height: 1.4;
+    /* Adjust text color for better visibility in dark mode */
+    color: #666;
+}
+
+/* Styles for dark mode */
+body.dark-mode .manga-description {
+    /* Apply a lighter text color in dark mode */
+    color: #aaa;
+}
+}
+
+/* Styles for light mode */
+body:not(.dark-mode) .manga-library {
+    /* Apply light mode background color */
+    background-color: #f4f4f4;
+}
+
+/* Styles for dark mode */
+body.dark-mode .manga-library {
+    /* Apply dark mode background color */
+    background-color: #333;
+}
+
+body.dark-mode .manga-card {
+    /* Apply dark mode background color to manga cards */
+    background-color: #262626;
+    
+    
+}
+
+    
+        /* ... (previous styles) ... */
+
+        /* New styles for the manga library */
+        .manga-library {
+            /* ... (previous styles) ... */
+        }
+
+        .manga-list {
+            /* ... (previous styles) ... */
+        }
+
+        .manga-card {
+            /* ... (previous styles) ... */
+        }
+
+        /* ... (remaining styles) ... */
+    </style>
+</head>
+<body>
+    <!-- ... (header, banner, posts) ... -->
+
+    <!-- Manga Library Section -->
+    <section class="manga-library">
+        <div class="manga-list">
+            <!-- Manga Cards -->
+            <div class="manga-card">
+                <!-- ... (manga card content) ... -->
+            </div>
+            <!-- Repeat the above structure for the remaining manga cards -->
+            <!-- ... (add more manga cards here) ... -->
+        </div>
+
+
+
+
+    </section>
+   
+   
+ </style>
+
+
+    <footer class="footer">
+        <p>&copy; 2023 Your Website Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
