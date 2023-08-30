@@ -133,7 +133,7 @@ body.dark-mode .read-more-button:hover {
         </div>
         <div class="main-menu">
             <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Nubis.html" style="color: white;">Home</a> |
-            <a href="#" style="color: white;">About</a> |
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/About.html#" style="color: white;">About</a> |
             <a href="#" style="color: white;">Contact</a> |
             <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Manga%20Library.html" style="color: white;">Library</a>
         </div>
@@ -174,6 +174,7 @@ body.dark-mode .read-more-button:hover {
             padding: 0 20px;
             max-width: 1200px;
             margin: 0 auto;
+            margin-top: 20px;
         }
         
         .manga-card {
@@ -214,125 +215,291 @@ body.dark-mode .read-more-button:hover {
             line-height: 1.4;
             color: #666;
         }
+        
+        .filter-button {
+    background-color: #FFD843;
+    color: black;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Add transform transition */
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Capitalize all text */
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.filter-button.selected {
+    background-color: #FEBB27;
+    transform: scale(1.05); /* Enlarge the button slightly */
+}
+
+.filter-button.unselected {
+    background-color: #FEBB27;
+    color: black;
+}
+
+.filter-heading {
+    margin-bottom: 10px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    
+    
+}
+    
+    body:not(.dark-mode) .filter-heading {
+    color: #333; /* Set the color for light mode */
+}
+
+/* Styles for dark mode */
+body.dark-mode .filter-heading {
+    color: white; /* Set the color for dark mode */
+    
+    
+}
+        
+        
+.filter-buttons.collapsed {
+    display: none;
+}
+
+.filter-buttons.hidden {
+    display: none;
+    
+}
+    
+    .toggle-button {
+    background-color: #FFD843;
+    color: black;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Add transform transition */
+    margin-bottom: 20px;
+    margin-top:20px;
+    text-transform: uppercase; /* Capitalize all text */
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.toggle-button:hover {
+    background-color: #FEBB27;
+}
+
+.section-title {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center; /* Center the section content */
+    margin-left: 20%;
+    margin-right: 20%;
+    
+}
+
+body.dark-mode .section-title {
+    background-color: #333; /* Apply dark mode background color */
+    color: white; /* Set the color for dark mode */
+}
+
+/* Styles for light mode */
+body:not(.dark-mode) .section-title {
+    background-color: #f4f4f4; /* Apply light mode background color */
+    color: #333; /* Set the color for light mode */
+}
+    
     </style>
 </head>
 <body>
     <!-- ... (header, banner, posts) ... -->
 
+<section>
+  <h2 class="section-title">Manga Library</h2>
+<button id="toggleFilters" class="toggle-button">Show Filters</button>
+
+</div>
+    <div class="filter-buttons hidden">
+    <!-- Add filter buttons for genres -->
+    <h3 class="filter-heading">Genres</h3>
+<div class="filter-section">
+    <button class="filter-button genre-button" data-filter="action">Action</button>
+    <button class="filter-button genre-button" data-filter="romance">Romance</button>
+    <button class="filter-button genre-button" data-filter="fantasy">Fantasy</button>
+    <button class="filter-button genre-button" data-filter="thriller">Thriller</button>
+    <button class="filter-button genre-button" data-filter="sci-fi">Sci-Fi</button>
+    <button class="filter-button genre-button" data-filter="isekai">Isekai</button>
+    <button class="filter-button genre-button" data-filter="school-life">School Life</button>
+    <button class="filter-button genre-button" data-filter="adventure">Adventure</button>
+    <button class="filter-button genre-button" data-filter="comedy">Comedy</button>
+    <button class="filter-button genre-button" data-filter="martial-arts">Martial Arts</button>
+    <button class="filter-button genre-button" data-filter="reborn">Reborn</button>
+    <button class="filter-button genre-button" data-filter="shounen">Shounen</button>
+    <button class="filter-button genre-button" data-filter="shoujo">Shoujo</button>
+    <button class="filter-button genre-button" data-filter="seinen">Seinen</button>
+    <button class="filter-button genre-button" data-filter="murim">Murim</button>
+    <button class="filter-button genre-button" data-filter="drama">Drama</button>
+    <button class="filter-button genre-button" data-filter="supernatural">Supernatural</button>
+    <button class="filter-button genre-button" data-filter="horror">Horror</button>
+    <button class="filter-button genre-button" data-filter="slice-of-life">Slice of Life</button>
+    <button class="filter-button genre-button" data-filter="josei">Josei</button>
+    <button class="filter-button genre-button" data-filter="psychological">Psychological</button>
+    <button class="filter-button genre-button" data-filter="sports">Sports</button>
+
+
+    <!-- Add more genre buttons -->
+</div>
+
+<!-- Add filter buttons for status -->
+<h3 class="filter-heading">Status</h3>
+<div class="filter-section">
+    <button class="filter-button status-button" data-filter="ongoing">Ongoing</button>
+    <button class="filter-button status-button" data-filter="completed">Completed</button>
+    <button class="filter-button status-button" data-filter="on hiatus">On Hiatus</button>
+    <button class="filter-button status-button" data-filter="dropped">Dropped</button>
+    <!-- Add more status buttons -->
+</div>
+
+<!-- Add filter buttons for type -->
+<h3 class="filter-heading">Type</h3>
+<div class="filter-section">
+    <button class="filter-button type-button" data-filter="manga">Manga</button>
+    <button class="filter-button type-button" data-filter="manhwa">Manhwa</button>
+    <button class="filter-button type-button" data-filter="manhua">Manhua</button>
+    <!-- Add more type buttons -->
+</div>
+
+</section>
+
   <!-- Manga Library Section -->
 <section class="manga-library">
-    <h2 class="section-title">Manga Library</h2>
+    
     <div class="manga-list">
         <!-- Manga Cards -->
-        <div class="manga-card">
-            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Return%20of%20the%20Mount%20Hua%20Sect.html">
-                <img src="https://asura.nacm.xyz/wp-content/uploads/2021/03/cover.jpg" alt="Manga 1">
-            </a>
-            <div class="manga-info">
-                <h3 class="manga-title">The Return of the Mount Hua Sect</h3>
-                <p class="manga-description">Chung Myung, The 13th Disciple of the Mount Hua Sect...</p>
-                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Return%20of%20the%20Mount%20Hua%20Sect.html" class="read-more-button">Read more</a>
-            </div>
+        
+    <!-- Manga Card 1 -->
+<div class="manga-card" data-genres="adventure comedy fantasy martial-arts reborn shounen action murim" data-status="ongoing" data-type="manhwa">    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Return%20of%20the%20Mount%20Hua%20Sect.html" class="manga-card-link">
+        <img src="https://asura.nacm.xyz/wp-content/uploads/2021/03/cover.jpg" alt="Manga 1">
+        <div class="manga-info">
+            <h3 class="manga-title">The Return of the Mount Hua Sect</h3>
+            <p class="manga-description">Chung Myung, The 13th Disciple of the Mount Hua Sect...</p>
         </div>
-        <div class="manga-card">
-            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Legend%20of%20Asura%20-%20The%20Venom%20Dragon.html">
+    </a>
+</div>
+
+    <!-- Manga Card 2 -->
+<div class="manga-card" data-genres="action fantasy martial-arts murim" data-status="ongoing" data-type="Manhwa">            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Legend%20of%20Asura%20-%20The%20Venom%20Dragon.html" class="manga-card-link">
                 <img src="https://asura.nacm.xyz/wp-content/uploads/2021/02/Illustration4.jpg" alt="Manga 2">
+                <div class="manga-info">
+                    <h3 class="manga-title">Legends of Asura - The Venom Dragon</h3>
+                    <p class="manga-description">The long history of the Medical Sect is followed by complete and utter annihilation...</p>
+                </div>
             </a>
-            <div class="manga-info">
-                <h3 class="manga-title">Legends of Asura - The Venom Dragon</h3>
-                <p class="manga-description">The long history of the Medical Sect is followed by complete and utter annihilation...</p>
-                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Legend%20of%20Asura%20-%20The%20Venom%20Dragon.html" class="read-more-button">Read more</a>
-            </div>
         </div>
-        <div class="manga-card">
-            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Novels%20Extra%20(Remake).html">
+        
+        <!-- Manga Card 3 -->
+<div class="manga-card" data-genres="action adventure drama fantasy school-life" data-status="ongoing" data-type="manhwa">    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Return%20of%20the%20Mount%20Hua%20Sect.html" class="manga-card-link">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Novels%20Extra%20(Remake).html" class="manga-card-link">
                 <img src="https://asura.nacm.xyz/wp-content/uploads/2022/06/novelextraCover02.png" alt="Manga 3">
+                <div class="manga-info">
+                    <h3 class="manga-title">The Novels Extra (Remake)</h3>
+                    <p class="manga-description">BILLIONS OF CHARACTERS EXIST INSIDE THE SINGLE WORLD OF A NOVEL...</p>
+                </div>
             </a>
-            <div class="manga-info">
-                <h3 class="manga-title">The Novels Extra (Remake)</h3>
-                <p class="manga-description">BILLIONS OF CHARACTERS EXIST INSIDE THE SINGLE WORLD OF A NOVEL...</p>
-                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Novels%20Extra%20(Remake).html" class="read-more-button">Read more</a>
-            </div>
         </div>
-        <div class="manga-card">
-            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Omniscient%20Readers%20Viewpoint.html">
+
+        <!-- Manga Card 4 -->
+<div class="manga-card" data-genres="action adventure fantasy thriller supernatural" data-status="ongoing" data-type="manhwa">    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Return%20of%20the%20Mount%20Hua%20Sect.html" class="manga-card-link">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Omniscient%20Readers%20Viewpoint.html" class="manga-card-link">
                 <img src="https://asura.nacm.xyz/wp-content/uploads/2020/09/ORV03.png" alt="Manga 4">
+                <div class="manga-info">
+                    <h3 class="manga-title">Omniscient Readers Viewpoint</h3>
+                    <p class="manga-description">‘THIS IS A DEVELOPMENT THAT I KNOW OF.’ THE MOMENT HE THOUGHT THAT THE WORLD HAD BEEN DESTROYED...</p>
+                </div>
             </a>
-            <div class="manga-info">
-                <h3 class="manga-title">Omniscient Readers Viewpoint</h3>
-                <p class="manga-description">‘THIS IS A DEVELOPMENT THAT I KNOW OF.’ THE MOMENT HE THOUGHT THAT THE WORLD HAD BEEN DESTROYED...</p>
-                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Omniscient%20Readers%20Viewpoint.html" class="read-more-button">Read more</a>
-            </div>
         </div>
-        <div class="manga-card">
-            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/IRL%20Quest.html">
+        
+        <!-- Manga Card 5 -->
+<div class="manga-card" data-genres="action school-life shounen supernatural" data-status="ongoing" data-type="manhwa">    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Return%20of%20the%20Mount%20Hua%20Sect.html" class="manga-card-link">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/IRL%20Quest.html" class="manga-card-link">
                 <img src="https://flamescans.org/wp-content/uploads/2021/06/IRLQcover.jpg" alt="Manga 5">
+                <div class="manga-info">
+                    <h3 class="manga-title">IRL Quest</h3>
+                    <p class="manga-description">DUE TO THREATS FROM A BULLY TO GET A GAME ITEM, HA DO-WAN DIES AS AN UNFORTUNATE GAME...</p>
+                </div>
             </a>
-            <div class="manga-info">
-                <h3 class="manga-title">IRL Quest</h3>
-                <p class="manga-description">DUE TO THREATS FROM A BULLY TO GET A GAME ITEM, HA DO-WAN DIES AS AN UNFORTUNATE GAME...</p>
-                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/IRL%20Quest.html" class="read-more-button">Read more</a>
-            </div>
         </div>
-        <div class="manga-card">
-            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Jungle%20Juice.html">
+
+        <!-- Manga Card 6 -->
+<div class="manga-card" data-genres="action adventure fantasy horror supernatural" data-status="ongoing" data-type="manhwa">    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Return%20of%20the%20Mount%20Hua%20Sect.html" class="manga-card-link">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Jungle%20Juice.html" class="manga-card-link">
                 <img src="https://flamescans.org/wp-content/uploads/2021/06/JJ_S2_COVER.png" alt="Manga 6">
+                <div class="manga-info">
+                    <h3 class="manga-title">Jungle Juice</h3>
+                    <p class="manga-description">SUCHAN JANG IS AN EXTRAORDINARY COLLEGE STUDENT AT THE TOP OF THE SOCIAL FOOD CHAIN...</p>
+                </div>
             </a>
-            <div class="manga-info">
-                <h3 class="manga-title">Jungle Juice</h3>
-                <p class="manga-description">SUCHAN JANG IS AN EXTRAORDINARY COLLEGE STUDENT AT THE TOP OF THE SOCIAL FOOD CHAIN...</p>
-                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Jungle%20Juice.html" class="read-more-button">Read more</a>
-            </div>
         </div>
-        <div class="manga-card">
-            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/I%20Raised%20A%20Black%20Dragon.html">
-                <img src="https://flamescans.org/wp-content/uploads/2021/11/black-dragon-cover-with-title.png" alt="Manga 6">
-            </a>
-            <div class="manga-info">
-                <h3 class="manga-title">I Raised A Black Dragon</h3>
-                <p class="manga-description">THE WITCH, ELEONORA ASIL, HAS FIFTEEN PREVIOUS CONVICTIONS. AND THE TRANSMIGRATOR, NOAH PARK...</p>
-                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/I%20Raised%20A%20Black%20Dragon.html" class="read-more-button">Read more</a>
-            </div>
+        
+        <!-- Manga Card 7 -->
+<div class="manga-card" data-genres="action comedy fantasy josei mystery romance slice-of-life" data-status="ongoing" data-type="manhwa">    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Return%20of%20the%20Mount%20Hua%20Sect.html" class="manga-card-link">
+    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/I%20Raised%20A%20Black%20Dragon.html" class="manga-card-link">
+        <img src="https://flamescans.org/wp-content/uploads/2021/11/black-dragon-cover-with-title.png" alt="Manga 11">
+        <div class="manga-info">
+            <h3 class="manga-title">I Raised A Black Dragon</h3>
+            <p class="manga-description">THE WITCH, ELEONORA ASIL, HAS FIFTEEN PREVIOUS CONVICTIONS. AND THE TRANSMIGRATOR, NOAH PARK...</p>
         </div>
-        <div class="manga-card">
-            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Study%20Group.html">
-                <img src="https://arenascan.com/wp-content/uploads/2023/05/Study-Group.webp" alt="Manga 6">
+    </a>
+</div>
+        
+        <!-- Manga Card 8 -->
+<div class="manga-card" data-genres="action comedy martial-arts school-life shounen supernatural" data-status="ongoing" data-type="manhwa">    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Return%20of%20the%20Mount%20Hua%20Sect.html" class="manga-card-link">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Study%20Group.html" class="manga-card-link">
+                <img src="https://arenascan.com/wp-content/uploads/2023/05/Study-Group.webp" alt="Manga 7">
+                <div class="manga-info">
+                    <h3 class="manga-title">Study Group</h3>
+                    <p class="manga-description">NICKNAMED THE “SCHOOL FOR FUTURE CRIMINALS,” YUSUNG TECHNICAL HIGH SCHOOL MAY NOT...</p>
+                </div>
             </a>
-            <div class="manga-info">
-                <h3 class="manga-title">Study Group</h3>
-                <p class="manga-description">NICKNAMED THE “SCHOOL FOR FUTURE CRIMINALS,” YUSUNG TECHNICAL HIGH SCHOOL MAY NOT...</p>
-                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Study%20Group.html" class="read-more-button">Read more</a>
-            </div>
         </div>
-        <div class="manga-card">
-            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/How%20to%20Fight.html">
-                <img src="https://mangadex.org/covers/d2df017b-c003-4de6-9625-4f1fba7aef97/4602ab68-0eb7-42a3-bfba-5d90ec19ca40.jpg.512.jpg" alt="Manga 6">
+
+        <!-- Manga Card 9 -->
+<div class="manga-card" data-genres="action comedy martial-arts drama thriller" data-status="ongoing" data-type="manhwa">    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Return%20of%20the%20Mount%20Hua%20Sect.html" class="manga-card-link">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/How%20to%20Fight.html" class="manga-card-link">
+                <img src="https://cdn.myanimelist.net/images/manga/1/248716.jpg" alt="Manga 8">
+                <div class="manga-info">
+                    <h3 class="manga-title">How to Fight</h3>
+                    <p class="manga-description">GOOD FOR NOTHING YOO HOBIN IS ALWAYS BULLIED BY STUDENTS WHO FEEL SUPERIOR TO HIM...</p>
+                </div>
             </a>
-            <div class="manga-info">
-                <h3 class="manga-title">How to Fight</h3>
-                <p class="manga-description">GOOD FOR NOTHING YOO HOBIN IS ALWAYS BULLIED BY STUDENTS WHO FEEL SUPERIOR TO HIM, YET HE...</p>
-                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/How%20to%20Fight.html" class="read-more-button">Read more</a>
-            </div>
         </div>
-<div class="manga-card">
-            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Blue%20Lock.html">
-                <img src="https://mangadex.org/covers/4141c5dc-c525-4df5-afd7-cc7d192a832f/08e1e33e-50c3-49a4-a196-039b62cf7b4b.jpg.512.jpg" alt="Manga 1">
+
+      <!-- Manga Card 10 -->
+<div class="manga-card" data-genres="thriller psychological sports drama school-life slice-of-life shounen" data-status="ongoing" data-type="manga">    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Return%20of%20the%20Mount%20Hua%20Sect.html" class="manga-card-link">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Blue%20Lock.html" class="manga-card-link">
+                <img src="https://cdn.myanimelist.net/s/common/store/cover/9313/ba043776b9bead89c89d7fd39552089bc0e96d9e1f6a3335d14b8e304a48f649/l.jpg" alt="Manga 9">
+                <div class="manga-info">
+                    <h3 class="manga-title">Blue Lock</h3>
+                    <p class="manga-description">THE STORY BEGINS WITH JAPAN'S VICTORY OVER THE 2022 FIFA WORLD CUP. TETSUYA ISHIWA...</p>
+                </div>
             </a>
-            <div class="manga-info">
-                <h3 class="manga-title">The Return of the Mount Hua Sect</h3>
-                <p class="manga-description">Chung Myung, The 13th Disciple of the Mount Hua Sect...</p>
-                <a href="ffile:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Blue%20Lock.html" class="read-more-button">Read more</a>
-            </div>
         </div>
-<div class="manga-card">
-            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Nano%20Machine.html">
-                <img src="https://toonily.com/wp-content/uploads/2021/07/Read-Nano-Machine-manhwa-free-224x320.jpg" alt="Manga 1">
+
+        <!-- Manga Card 11 -->
+<div class="manga-card" data-genres="action adventure fantasy sci-fi shounen murim thriller" data-status="ongoing" data-type="manhwa">    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Return%20of%20the%20Mount%20Hua%20Sect.html" class="manga-card-link">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Nano%20Machine.html" class="manga-card-link">
+                <img src="https://cdn.myanimelist.net/images/manga/2/262456l.jpg" alt="Manga 10">
+                <div class="manga-info">
+                    <h3 class="manga-title">Nano Machine</h3>
+                    <p class="manga-description">AFTER BEING HELD IN DISDAIN AND HAVING HIS LIFE PUT IN DANGER...</p>
+                </div>
             </a>
-            <div class="manga-info">
-                <h3 class="manga-title">Nano Machine</h3>
-                <p class="manga-description">AFTER BEING HELD IN DISDAIN AND HAVING HIS LIFE PUT IN DANGER, AN ORPHAN FROM THE...</p>
-                <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Nano%20Machine.html" class="read-more-button">Read more</a>
-            </div>
         </div>
 
         
@@ -363,7 +530,7 @@ body.dark-mode .read-more-button:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
     padding: 0 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -374,14 +541,22 @@ body.dark-mode .read-more-button:hover {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 240px;
-    cursor: pointer; /* Add cursor pointer to indicate clickable */
+    width: 180px;
+    cursor: pointer;
+    margin: 5px;
+    transition: transform 0.2s ease-in-out; /* Add a smooth hover effect */
+}
+
+.manga-card-link {
+    text-decoration: none; /* Remove underline from the link */
+    color: inherit; /* Inherit text color from parent */
+    
 }
 
 .manga-card img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: 250px; /* Set a fixed height for the images */
+    object-fit: fill;
 }
 
 .manga-info {
@@ -389,17 +564,21 @@ body.dark-mode .read-more-button:hover {
 }
 
 .manga-title {
-    font-size: 16px;
+    font-size: 14px; /* Decrease the font size for the titles */
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
 
 /* Common styles for both light and dark modes */
 .manga-description {
-    font-size: 14px;
-    line-height: 1.4;
-    /* Adjust text color for better visibility in dark mode */
+    font-size: 12px; /* Decrease the font size for descriptions */
+    line-height: 1.3; /* Adjust line height for better readability */
     color: #666;
+}
+
+.manga-card:hover {
+    transform: scale(1.05); /* Enlarge the card slightly on hover */
+    
 }
 
 /* Styles for dark mode */
@@ -424,8 +603,6 @@ body.dark-mode .manga-library {
 body.dark-mode .manga-card {
     /* Apply dark mode background color to manga cards */
     background-color: #262626;
-    
-    
 }
 
     
@@ -468,10 +645,81 @@ body.dark-mode .manga-card {
    
    
  </style>
+ 
+ <script>
 
+// JavaScript code for toggling filter button states and filtering manga cards
+
+const genreButtons = document.querySelectorAll('.genre-button');
+const statusButtons = document.querySelectorAll('.status-button');
+const typeButtons = document.querySelectorAll('.type-button');
+const mangaCards = document.querySelectorAll('.manga-card');
+
+function toggleButtonState(button) {
+    button.classList.toggle('selected');
+    button.classList.toggle('unselected');
+}
+
+function applyFilters() {
+    const selectedGenres = Array.from(document.querySelectorAll('.genre-button.selected')).map(button => button.getAttribute('data-filter'));
+    const selectedStatus = Array.from(document.querySelectorAll('.status-button.selected')).map(button => button.getAttribute('data-filter'));
+    const selectedTypes = Array.from(document.querySelectorAll('.type-button.selected')).map(button => button.getAttribute('data-filter'));
+
+    mangaCards.forEach(card => {
+        const genres = card.getAttribute('data-genres').split(' ');
+        const status = card.getAttribute('data-status');
+        const type = card.getAttribute('data-type');
+
+      const genreMatch = selectedGenres.every(g => genres.includes(g));        
+      const statusMatch = selectedStatus.length === 0 || selectedStatus.includes(status);
+      const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(type);
+
+        if (genreMatch && statusMatch && typeMatch) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+genreButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        toggleButtonState(button);
+        applyFilters();
+    });
+});
+
+statusButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        toggleButtonState(button);
+        applyFilters();
+    });
+});
+
+typeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        toggleButtonState(button);
+        applyFilters();
+    });
+});
+</script>
+
+<script>
+  
+  const toggleButton = document.getElementById("toggleFilters");
+const filterButtonsContainer = document.querySelector(".filter-buttons");
+
+toggleButton.addEventListener("click", () => {
+    filterButtonsContainer.classList.toggle("hidden");
+    if (filterButtonsContainer.classList.contains("hidden")) {
+        toggleButton.textContent = "Show Filters";
+    } else {
+        toggleButton.textContent = "Hide Filters";
+    }
+});
+</script>
 
     <footer class="footer">
         <p>&copy; 2023 Your Website Name. All rights reserved.</p>
     </footer>
 </body>
-</html>

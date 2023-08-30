@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            color: black;
+            text-align: center;
+            text-transform: uppercase; /* Capitalize all text */
+        }
+        body.dark-mode {
+            background-color: #262626;
+            color: white;
+        }
+        .header {
+            background-color: #FFD843;
+            color: black;
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .main-menu {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .main-menu a {
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+            color: black;
+        }
+        .main-menu a:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .dark-mode-button {
+            background-color: transparent;
+            border: none;
+            color: black;
+            cursor: pointer;
+            font-size: 18px;
+            transition: color 0.3s ease;
+            margin-top: 10px;
+        }
+        .dark-mode-button:hover {
+            color: #FFD843;
+        }
+        .footer {
+            background-color: #FFD843;
+            color: black;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            width: 100%;
+            bottom: 0px;
+            margin-top: 20px;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            z-index: 999;
+            border-radius: 25%;
+        }
+        .logo img {
+            width: 50%;
+        }
+        
+        .image-carousel {
+            width: calc(100% - 20px); /* Subtract 20px for padding on both sides */
+            margin: 10px auto;
+            padding: 0 10px; /* Add padding to the left and right sides */
+            overflow: hidden;
+            position: relative;
+        border-radius: 10px;
+}
+
+.carousel-slide img {
+    width: 100vw; /* Set the image width to 100% of the viewport width */
+    height: auto; /* Let the height adjust based on the aspect ratio */
+    object-fit: cover; /* Maintain aspect ratio while covering the container */
+    object-position: center center; /* Center the image within the container */
+    border-radius: 10px;
+}
+
+.carousel-slide img {
+            max-width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px; /* Increase padding for better visibility */
+    position: absolute;
+    top: 80%; /* Position the caption vertically at 50% from the top */
+    left: 50%; /* Position the caption horizontally at 50% from the left */
+    transform: translate(-50%, -50%); /* Center the caption using transform */
+    width: 80%; /* Adjust width as needed */
+    text-align: center;
+    
+}
+
+        
+        .blog-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px auto 40px;
+}
+
+.blog-post-card {
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 5px; /* Adjust margin for spacing between blog post cards */
+    width: 300px; /* Increase width to make blog post cards wider */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+}
+
+.blog-post-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent 70%); /* Gradient overlay */
+    opacity: 0;
+    pointer-events: none; /* Prevent hover effect on this layer */
+    transition: opacity 0.3s ease;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.blog-post-card:hover::before {
+    opacity: 1;
+}
+
+.blog-post-card img {
+    width: 100%; /* Make the image width 100% of the card */
+    height: 40%; /* Let the height adjust based on the aspect ratio */
+    border-radius: 10px 10px 0 0; /* Round only the top corners */
+    object-fit: cover;
+}
+
+.blog-post-title {
+    font-size: 20px; /* Increased font size */
+    margin-top: 15px;
+}
+
+.blog-post-excerpt {
+    font-size: 12px;
+    color: #777;
+    margin-top: 8px;
+}
+
+.read-more-button {
+    display: inline-block;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 8px 16px; /* Increase padding for a larger button */
+    background-color: #FFD843;
+    color: black;
+    text-decoration: none;
+    border-radius: 30px; /* Use a larger border-radius for a rounded button */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease-in-out;
+    border: 2px solid transparent; /* Add a border for a modern look */
+}
+
+.read-more-button:hover {
+    background-color: #FEBB27;
+    color: white;
+    transform: scale(1.05); /* Enlarge the button slightly on hover */
+    border-color: #FEBB27; /* Change border color on hover */
+}
+
+body.dark-mode .blog-post-card {
+    background-color: #333;
+    border-color: #555;
+    box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+body.dark-mode .blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .blog-post-title {
+    color: #FFD843;
+}
+
+body.dark-mode .blog-post-excerpt {
+    color: #999;
+}
+
+body.dark-mode .read-more-button {
+    background-color: #FFD843;
+    color: black;
+}
+
+body.dark-mode .read-more-button:hover {
+    background-color: #FEBB27;
+    color: black;
+}
+
+.Recommendations-post {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px auto 5px;
+}
+
+.recommendation-container {
+    width: 80%;            /* Set the width of the container */
+    overflow-x: auto;       /* Enable horizontal scrolling */
+    white-space: nowrap;    /* Prevent cards from wrapping */
+    display: flex;          /* Optional: Use flexbox for layout */
+    
+}
+
+
+.Recommendations-post-card {
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 10px; /* Adjust margin for spacing between recommendation cards */
+    width: 250px; /* Increase width to make recommendation cards wider */
+    height: 150px; /* Set the desired height */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    color: inherit; /* Use the color of the parent element */
+    text-decoration: none; /* Remove underline */
+    min-width: 250px;       /* Set a minimum width for each card */
+    
+    
+}
+    
+    .Recommendations-post-card img {
+    width: 100%;
+    height: 50%;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+}
+
+.Recommendations-post-title {
+    font-size: 15px; /* Adjust the font size to your preference */
+    margin-top: 10px;
+}
+
+.Recommendations-post-excerpt {
+    font-size: 10px;
+    color: #777;
+    margin-top: 0px;
+    text-align: center;
+    white-space: pre-line; /* Preserve line breaks and start text on a new line */
+}
+
+body.dark-mode .Recommendations-post-card {
+    /* Apply dark mode background color and text color to recommendation cards */
+    background-color: #262626;
+    color: white;
+
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.filter-buttons {
+    margin-bottom: 1rem;
+}
+
+.filter-button {
+    background-color: #FFD843;
+    color: black;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: #FEBB27;
+
+}
+
+/* Styles for the video row */
+.video-row {
+    background-color: #ffffff; /* Set your desired background color */
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+    width: 100%;
+}
+
+.video-container {
+    width: 100%;            /* Set the width of the container */
+    overflow-x: auto;       /* Enable horizontal scrolling */
+    white-space: nowrap;    /* Prevent cards from wrapping */
+    display: flex;          /* Optional: Use flexbox for layout */
+    
+}
+
+.video-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.video-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 240px;
+    min-width: 240px;       /* Set a minimum width for each video card */
+    margin-right: 10px;     /* Add some space between video cards */
+    
+}
+
+.video-card iframe {
+    width: 100%;
+    height: auto;
+    border: none;
+    border-radius: 10px 10px 0 0;
+}
+
+.video-title {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Common styles for both light and dark modes */
+.video-description {
+    font-size: 10px;
+    line-height: 1.4;
+    /* Adjust text color for better visibility in dark mode */
+    color: #666;
+    padding: 1rem; /* Adjust the padding as needed */
+    padding-top: 0.5rem; /* Add some space at the top */
+    padding-bottom: 0.5rem; /* Add some space at the bottom */
+    padding-left: 1rem; /* Add some space on the left */
+    padding-right: 1rem; /* Add some space on the right */
+    white-space: pre-line; /* Preserve line breaks and start text on a new line */
+}
+
+/* Styles for dark mode */
+body.dark-mode .video-description {
+    /* Apply a lighter text color in dark mode */
+    color: #aaa;
+}
+
+body.dark-mode .video-row {
+    background-color: #1f1f1f; /* Set your desired background color for dark mode */
+}
+
+/* Styles for light mode */
+body:not(.dark-mode) .video-row {
+    background-color: #ffffff; /* Set your desired background color for light mode */
+}
+
+/* Styles for light mode */
+body:not(.dark-mode) .video-description {
+    /* Apply light mode text color */
+    color: #666;
+}
+
+body.dark-mode .video-card {
+    /* Apply dark mode background color to video cards */
+    background-color: #262626;
+}
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="https://i.ibb.co/NyxrmGp/Nubis-Manga-Icon-2.png" alt="Logo">
+        </div>
+        <div class="main-menu">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Nubis.html#" style="color: white;">Home</a> |
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/About.html" style="color: white;">About</a> |
+            <a href="#" style="color: white;">Contact</a> |
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Manga%20Library.html" style="color: white;">Library</a>
+        </div>
+        <button class="dark-mode-button" id="darkModeToggle">🌑</button>
+    </div>
+
+    <script>
+        const darkModeToggle = document.getElementById("darkModeToggle");
+
+        darkModeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+    
+    <section class="image-carousel">
+    <div class="carousel-slide">
+        <img src="https://i.ibb.co/jZpRFxd/1319725.jpg" alt="Image 1">
+        <div class="carousel-caption">OSHI NO KO S1 is over</div>
+    </div>
+    <div class="carousel-slide">
+        <img src="https://images8.alphacoders.com/132/1325999.jpeg" alt="Image 2">
+        <div class="carousel-caption">Vigilante Deku is cool...</div>
+    </div>
+    <div class="carousel-slide">
+        <img src="https://images8.alphacoders.com/127/1274141.jpg" alt="Image 3">
+        <div class="carousel-caption">Uta from One Piece: Film Red</div>
+    </div>
+    <!-- Add more carousel-slide elements for additional images -->
+</section>
+
+    
+    <section class="blog-posts">
+        <div class="blog-post-card">
+            <img src="https://i.ibb.co/3pXrLrp/1043655-illustration-planet-space-reflection-Earth-manga-underwater-atmosphere-One-Piece-universe-wa.png" alt="Blog Post Image">
+            <h2 class="blog-post-title">Nubis Mr has set sail</h2>
+            <p class="blog-post-excerpt">NUBIS MR is nearly close to completion...</p>
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Blog%20Posts/Nubis's%20New%20Journey.html" class="read-more-button">Read More</a>
+        </div>
+        
+        <div class="blog-post-card">
+            <img src="https://i.ibb.co/XSRcYfs/893603-Wenfei-Ye-drawing-anime-girls-brunette-ponytail.jpg" alt="Blog Post Image">
+            <h2 class="blog-post-title">How cute are Shiba Inu?</h2>
+            <p class="blog-post-excerpt">The answer is they are all cute, there is no debate on this...</p>
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Blog%20Posts/Shiba%20Inu%20Cuteness.html" class="read-more-button">Read More</a>
+        </div>
+        
+        <div class="blog-post-card">
+            <img src="https://images6.alphacoders.com/132/1320329.png" alt="Blog Post Image">
+            <h2 class="blog-post-title">120 Minute Episodes?</h2>
+            <p class="blog-post-excerpt">Are 120 minute episode 1's a good idea...? </p>
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Blog%20Posts/120%20Minute%20Episode1.html" class="read-more-button">Read More</a>
+        </div>
+        
+        <!-- Add more blog post cards as needed -->
+    </section>
+    
+<section class="manga-recommendations">
+    <h2 class="section-title">Recommendations</h2>
+    <!-- Filter buttons -->
+    <div class="filter-buttons">
+        <button class="filter-button" data-category="ALL">ALL</button>
+        <button class="filter-button" data-category="MANGA">MANGA</button>
+        <button class="filter-button" data-category="ANIME">ANIME</button>
+        <!-- Add more filter buttons as needed -->
+    </div>
+    <!-- Image Portfolio with Filtering -->
+    <div class="image-portfolio">
+        <!-- Manga Recommendation Cards -->
+        <div class="recommendation-card action">
+            <!-- ... (card content) ... -->
+        </div>
+        <!-- Repeat the above structure for the remaining recommendation cards -->
+        <!-- ... (add more recommendation cards here) ... -->
+    </div>
+</section>
+
+
+<div class="Recommendations-post"> 
+<div class="recommendation-container">
+    <!-- Recommendation Card 1 -->
+    <a href="manga-details.html" class="Recommendations-post-card" data-category="ANIME">
+    <img src="https://i.pinimg.com/originals/08/98/e8/0898e8124fc192c0bb7edb5f7517214c.jpg" alt="Manga Title">
+    <h2 class="Recommendations-post-title">STRATEGY ANIME</h2>
+    <p class="Recommendations-post-excerpt">Give these recommendations a thought, maybe you'll awaken something?</p>
+</a>
+    
+    <!-- Recommendation Card 2 -->
+    <a href="manga-details.html" class="Recommendations-post-card" data-category="ANIME">
+    <img src="https://i.pinimg.com/originals/b3/0d/f4/b30df414bb3d6261d6e1cc14cc05eed8.jpg" alt="Manga Title">
+    <h2 class="Recommendations-post-title">SHOUNEN ANIME</h2>
+    <p class="Recommendations-post-excerpt">DATTEBAYO SASUKE! Come check this out!</p>
+</a>
+
+<!-- Recommendation Card 3 -->
+    <a href="manga-details.html" class="Recommendations-post-card" data-category="MANGA">
+    <img src="https://a-static.besthdwallpaper.com/demon-slayer-zenitsu-agatsuma-wallpaper-1920x1080-72206_48.jpg" alt="Manga Title">
+    <h2 class="Recommendations-post-title">ACTION COMEDY MANGA</h2>
+    <p class="Recommendations-post-excerpt">Who doesnt love some laughter between punches?</p>
+</a>
+    
+    <!-- Recommendation Card 4 -->
+    <a href="manga-details.html" class="Recommendations-post-card" data-category="MANGA">
+    <img src="https://images2.alphacoders.com/710/710184.jpg" alt="Manga Title">
+    <h2 class="Recommendations-post-title">SCHOOL LIFE MANGA</h2>
+    <p class="Recommendations-post-excerpt">Love a good school life manga? Check these out!</p>
+</a>
+
+<!-- Recommendation Card 5 -->
+    <a href="manga-details.html" class="Recommendations-post-card" data-category="ANIME">
+    <img src="https://wallpapercave.com/wp/wp622070.jpg" alt="Manga Title">
+    <h2 class="Recommendations-post-title">SHOUJO ANIME</h2>
+    <p class="Recommendations-post-excerpt">shoujo anime usually center on a female protagonist</p>
+</a>
+    
+    <!-- Recommendation Card 6 -->
+    <a href="manga-details.html" class="Recommendations-post-card" data-category="MANGA">
+    <img src="https://i.pinimg.com/564x/77/13/54/771354bec2c2607de17bfc507c229c35.jpg" alt="Manga Title">
+    <h2 class="Recommendations-post-title">LGBTQ+ Manga</h2>
+    <p class="Recommendations-post-excerpt">Try these Manga, maybe you'll discover something...</p>
+</a>
+
+<!-- Recommendation Card 7 -->
+    <a href="manga-details.html" class="Recommendations-post-card" data-category="MANGA">
+    <img src="https://i.pinimg.com/564x/ab/90/c9/ab90c9df60635fb6e06a9874868c77b3.jpg" alt="Manga Title">
+    <h2 class="Recommendations-post-title">AROACE REPRESENTATION</h2>
+    <p class="Recommendations-post-excerpt">Dedicated to my housemate, Shove!</p>
+</a>
+    
+    <!-- Recommendation Card 8 -->
+    <a href="manga-details.html" class="Recommendations-post-card" data-category="ANIME">
+    <img src="https://i.pinimg.com/564x/da/60/85/da60857d6b430e7f6f9179512d42ed15.jpg" alt="Manga Title">
+    <h2 class="Recommendations-post-title">ANIME WITH OP MC's</h2>
+    <p class="Recommendations-post-excerpt">Main characters with too much power</p>
+</a>
+    
+    <!-- Recommendation Card 9 -->
+    <a href="manga-details.html" class="Recommendations-post-card" data-category="MANGA">
+    <img src="https://i.pinimg.com/originals/cf/3b/72/cf3b72ef7122a5abcad3ced077c49cfe.png" alt="Manga Title">
+    <h2 class="Recommendations-post-title">Apocalyptic Manga</h2>
+    <p class="Recommendations-post-excerpt">Surviving the world, against all the odds...</p>
+</a>
+    
+    <!-- Recommendation Card 10 -->
+    <a href="manga-details.html" class="Recommendations-post-card" data-category="ANIME">
+    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0dc4b64d-bc15-481b-af57-e933e7197dd9/d8l7k4t-381ccabb-dc17-4144-9c2f-14d6861ef083.jpg/v1/fit/w_828,h_1172,q_70,strp/again__by_harousel_d8l7k4t-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI2MyIsInBhdGgiOiJcL2ZcLzBkYzRiNjRkLWJjMTUtNDgxYi1hZjU3LWU5MzNlNzE5N2RkOVwvZDhsN2s0dC0zODFjY2FiYi1kYzE3LTQxNDQtOWMyZi0xNGQ2ODYxZWYwODMuanBnIiwid2lkdGgiOiI8PTg5MyJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.I2FjkaqpeqU4iCnfaZ0EiEAJRxIdE5DvaWOFLPvcxbw" alt="Manga Title">
+    <h2 class="Recommendations-post-title">Romantic Drama</h2>
+    <p class="Recommendations-post-excerpt">Dramatic romances with really good plot!</p>
+</a>
+
+<!-- Recommendation Card 11 -->
+    <a href="manga-details.html" class="Recommendations-post-card" data-category="MANGA">
+    <img src="https://cdna.artstation.com/p/assets/images/images/052/472/788/large/anastasia-ermakova-classroom2.jpg?1659895730" alt="Manga Title">
+    <h2 class="Recommendations-post-title">School life</h2>
+    <p class="Recommendations-post-excerpt">Who said going to school ain't cool??</p>
+</a>
+    
+    <!-- Recommendation Card 12 -->
+    <a href="manga-details.html" class="Recommendations-post-card" data-category="MANGA">
+    <img src="https://cdna.artstation.com/p/assets/images/images/035/689/546/large/yokey-liu-.jpg?1615630289" alt="Manga Title">
+    <h2 class="Recommendations-post-title">ISEKAI MANGA</h2>
+    <p class="Recommendations-post-excerpt">Reborn, Redo or transported, Isekai is new</p>
+</a>
+    
+    </div>
+    
+    
+  <section class="video-row">
+    <h2 class="section-title">Featured Trailers</h2>
+    <div class="video-list">
+      
+        <!-- Video Cards -->
+        
+        <!-- Repeat the above structure for the remaining video cards -->
+        <!-- Video Cards -->
+        <div class="video-container">
+        <div class="video-card"> 
+            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/9vIxi5XkQ8Y?si=3v-VdLzQ8dv4Lx_F" frameborder="0" allowfullscreen></iframe>
+            <div class="video-info">
+                <h3 class="video-title">Solo Levelling</h3>
+                <p class="video-description">This is a short description of the featured video...</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/PE-Wwaxei8Y?si=QW2Tw6z0Wc4IzgHO" frameborder="0" allowfullscreen></iframe>
+            <div class="video-info">
+                <h3 class="video-title">Oshi No Ko</h3>
+                <p class="video-description">This is a short description of the featured video...</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/IecYMqp1N4k?si=HjLPsFK1NJXJCwCk" frameborder="0" allowfullscreen></iframe>
+            <div class="video-info">
+                <h3 class="video-title">Clannad</h3>
+                <p class="video-description">This is a short description of the featured video...</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/VSdS29SDvn4?si=R6Wk7T1w0slhytNb" frameborder="0" allowfullscreen></iframe>
+            <div class="video-info">
+                <h3 class="video-title">Eighty Six 86</h3>
+                <p class="video-description">This is a short description of the featured video...</p>
+            </div>
+        </div>
+        
+        <div class="video-card"> 
+            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/Ades3pQbeh8?si=jzouEhkS93Tlrfwr" frameborder="0" allowfullscreen></iframe>
+            <div class="video-info">
+                <h3 class="video-title">ONE PIECE: LIVE ACTION</h3>
+                <p class="video-description">This is a short description of the featured video...</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/k9VlFHW1pd4?si=8ObIr2TtkCYGK0jD" frameborder="0" allowfullscreen></iframe>
+            <div class="video-info">
+                <h3 class="video-title">Blue Lock: Nagi</h3>
+                <p class="video-description">This is a short description of the featured video...</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/vGuQeQsoRgU?si=PdS3-I9ZI4Fxbg7D" frameborder="0" allowfullscreen></iframe>
+            <div class="video-info">
+                <h3 class="video-title">Tokyo Ghoul</h3>
+                <p class="video-description">This is a short description of the featured video...</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/ykQrD1J09ts?si=9FrV3i2vfFbtiycQ" frameborder="0" allowfullscreen></iframe>
+            <div class="video-info">
+                <h3 class="video-title">Ranma 1/2</h3>
+                <p class="video-description">This is a short description of the featured video...</p>
+            </div>
+        </div>
+        <!-- ... (add more video cards here) ... -->
+    </div>
+</section>
+
+
+
+    
+    <script>
+      
+      const carouselSlides = document.querySelectorAll('.carousel-slide');
+let currentSlideIndex = 0;
+
+function showSlide(index) {
+    carouselSlides.forEach(slide => slide.style.display = 'none');
+    carouselSlides[index].style.display = 'block';
+}
+
+function nextSlide() {
+    currentSlideIndex = (currentSlideIndex + 1) % carouselSlides.length;
+    showSlide(currentSlideIndex);
+}
+
+// Show the first slide
+showSlide(currentSlideIndex);
+
+// Automatically switch to the next slide every 5 seconds
+setInterval(nextSlide, 5000);
+
+      
+    </script>
+    
+     <!-- Manga Library Section -->
+<section class="manga-library">
+    <h2 class="section-title">Manga Library</h2>
+    <div class="manga-list">
+        <!-- Manga Cards -->
+        <div class="manga-card">
+    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Return%20of%20the%20Mount%20Hua%20Sect.html" class="manga-card-link">
+        <img src="https://asura.nacm.xyz/wp-content/uploads/2021/03/cover.jpg" alt="Manga 1">
+        <div class="manga-info">
+            <h3 class="manga-title">The Return of the Mount Hua Sect</h3>
+            <p class="manga-description">Chung Myung, The 13th Disciple of the Mount Hua Sect...</p>
+        </div>
+    </a>
+</div>
+
+<div class="manga-card">
+    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Legend%20of%20Asura%20-%20The%20Venom%20Dragon.html" class="manga-card-link">
+        <img src="https://asura.nacm.xyz/wp-content/uploads/2021/02/Illustration4.jpg" alt="Manga 2">
+        <div class="manga-info">
+            <h3 class="manga-title">Legends of Asura - The Venom Dragon</h3>
+            <p class="manga-description">The long history of the Medical Sect is followed by complete and utter annihilation...</p>
+        </div>
+    </a>
+</div>
+
+<div class="manga-card">
+    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/The%20Novels%20Extra%20(Remake).html" class="manga-card-link">
+        <img src="https://asura.nacm.xyz/wp-content/uploads/2022/06/novelextraCover02.png">
+        <div class="manga-info">
+            <h3 class="manga-title">The Novels Extra (Remake)</h3>
+            <p class="manga-description">BILLIONS OF CHARACTERS EXIST INSIDE THE SINGLE WORLD OF A NOVEL...</p>
+        </div>
+    </a>
+</div>
+
+<div class="manga-card">
+    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Omniscient%20Readers%20Viewpoint.html" class="manga-card-link">
+        <img src="https://asura.nacm.xyz/wp-content/uploads/2020/09/ORV03.png" alt="Manga 4">
+        <div class="manga-info">
+            <h3 class="manga-title">Omniscient Readers Viewpoint</h3>
+            <p class="manga-description">‘THIS IS A DEVELOPMENT THAT I KNOW OF.’ THE MOMENT HE THOUGHT THAT THE WORLD HAD BEEN DESTROYED...</p>
+        </div>
+    </a>
+</div>
+
+<div class="manga-card">
+    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/IRL%20Quest.html" class="manga-card-link">
+        <img src="https://flamescans.org/wp-content/uploads/2021/06/IRLQcover.jpg" alt="Manga 5">
+        <div class="manga-info">
+            <h3 class="manga-title">IRL Quest</h3>
+            <p class="manga-description">DUE TO THREATS FROM A BULLY TO GET A GAME ITEM, HA DO-WAN DIES AS AN UNFORTUNATE GAME...</p>
+        </div>
+    </a>
+</div>
+
+<div class="manga-card">
+    <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Info/Jungle%20Juice.html" class="manga-card-link">
+        <img src="https://flamescans.org/wp-content/uploads/2021/06/JJ_S2_COVER.png" alt="Manga 6">
+        <div class="manga-info">
+            <h3 class="manga-title">Jungle Juice</h3>
+            <p class="manga-description">SUCHAN JANG IS AN EXTRAORDINARY COLLEGE STUDENT AT THE TOP OF THE SOCIAL FOOD CHAIN...</p>
+        </div>
+    </a>
+</div>
+
+        <!-- Repeat the above structure for the remaining manga cards -->
+        <!-- ... (add more manga cards here) ... -->
+    </div>
+</section>
+
+
+    <!-- ... (script) ... -->
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (head content) ... -->
+    <style>
+    
+    /* Common styles for both light and dark modes */
+.manga-library {
+    background-color: #f4f4f4;
+    padding: 2rem 0;
+    text-align: center; /* Center the section content */
+    width: 100%;
+}
+
+.manga-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.manga-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 180px;
+    cursor: pointer;
+    margin: 5px;
+    transition: transform 0.2s ease-in-out; /* Add a smooth hover effect */
+}
+
+.manga-card-link {
+    text-decoration: none; /* Remove underline from the link */
+    color: inherit; /* Inherit text color from parent */
+    
+}
+
+.manga-card img {
+    width: 100%;
+    height: 250px; /* Set a fixed height for the images */
+    object-fit: fill;
+}
+
+.manga-info {
+    padding: 1rem;
+}
+
+.manga-title {
+    font-size: 14px; /* Decrease the font size for the titles */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Common styles for both light and dark modes */
+.manga-description {
+    font-size: 12px; /* Decrease the font size for descriptions */
+    line-height: 1.3; /* Adjust line height for better readability */
+    color: #666;
+}
+
+.manga-card:hover {
+    transform: scale(1.05); /* Enlarge the card slightly on hover */
+    
+}
+
+/* Styles for dark mode */
+body.dark-mode .manga-description {
+    /* Apply a lighter text color in dark mode */
+    color: #aaa;
+}
+}
+
+/* Styles for light mode */
+body:not(.dark-mode) .manga-library {
+    /* Apply light mode background color */
+    background-color: #f4f4f4;
+}
+
+/* Styles for dark mode */
+body.dark-mode .manga-library {
+    /* Apply dark mode background color */
+    background-color: #333;
+}
+
+body.dark-mode .manga-card {
+    /* Apply dark mode background color to manga cards */
+    background-color: #262626;
+}
+
+    
+        /* ... (previous styles) ... */
+
+        /* New styles for the manga library */
+        .manga-library {
+            /* ... (previous styles) ... */
+        }
+
+        .manga-list {
+            /* ... (previous styles) ... */
+        }
+
+        .manga-card {
+            /* ... (previous styles) ... */
+        }
+
+        /* ... (remaining styles) ... */
+    </style>
+</head>
+<body>
+    <!-- ... (header, banner, posts) ... -->
+
+    <!-- Manga Library Section -->
+    <section class="manga-library">
+        <div class="manga-list">
+            <!-- Manga Cards -->
+            <div class="manga-card">
+                <!-- ... (manga card content) ... -->
+            </div>
+            <!-- Repeat the above structure for the remaining manga cards -->
+            <!-- ... (add more manga cards here) ... -->
+        </div>
+        <div class="view-more-button">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Manga%20Library.html" class="read-more-button">View More Mangas</a>
+        </div>
+    </section>
+    
+    <script>
+    const filterButtons = document.querySelectorAll('.filter-button');
+const recommendationCards = document.querySelectorAll('.Recommendations-post-card');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+        
+        recommendationCards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            if (category === 'ALL' || cardCategory === category) {
+                card.style.display = 'block';
+                if (document.body.classList.contains('dark-mode')) {
+                    card.classList.add('dark-mode');
+                } else {
+                    card.classList.remove('dark-mode');
+                }
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
+</Script>
+
+
+
+
+    <footer class="footer">
+        <p>&copy; 2023 Your Website Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
