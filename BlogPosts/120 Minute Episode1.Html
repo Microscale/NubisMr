@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            color: black;
+            text-align: center;
+            text-transform: uppercase; /* Capitalize all text */
+        }
+        body.dark-mode {
+            background-color: #262626;
+            color: white;
+        }
+        .header {
+            background-color: #FFD843;
+            color: black;
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .main-menu {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .main-menu a {
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+            color: black;
+        }
+        .main-menu a:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .dark-mode-button {
+            background-color: transparent;
+            border: none;
+            color: black;
+            cursor: pointer;
+            font-size: 18px;
+            transition: color 0.3s ease;
+            margin-top: 10px;
+        }
+        .dark-mode-button:hover {
+            color: #FFD843;
+        }
+        .footer {
+            background-color: #FFD843;
+            color: black;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            width: 100%;
+            bottom: 0px;
+            margin-top: 20px;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            z-index: 999;
+            border-radius: 25%;
+        }
+        .logo img {
+            width: 50%;
+        }
+        
+        .Blog-post {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px auto 5px;
+}
+
+.Blog-post-card {
+    background-color: #fff;
+    border: none;
+    border-radius: 0 40px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 0px; /* Adjust margin for spacing between recommendation cards */
+    width: 800px; /* Increase width to make recommendation cards wider */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    color: inherit; /* Use the color of the parent element */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 10px 20px; /* Adjust padding as needed */
+    
+}
+    
+    .Blog-post-card img {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    margin-bottom:5px;
+}
+
+.Blog-post-title {
+    font-size: 25px; /* Adjust the font size to your preference */
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.Blog-post-excerpt {
+    font-size: 10px;
+    color: #black;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+    line-height: 2.1;
+}
+
+.Author-date {
+    font-size: 10px;
+    color: #777;
+    margin-top: 5px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+
+
+body.dark-mode .Blog-post-card {
+    /* Apply dark mode background color and text color to recommendation cards */
+    background-color: #333;
+    color: white;
+
+}
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="https://i.ibb.co/NyxrmGp/Nubis-Manga-Icon-2.png" alt="Logo">
+        </div>
+        <div class="main-menu">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Nubis.html#" style="color: white;">Home</a> |
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/About.html" style="color: white;">About</a> |
+            <a href="#" style="color: white;">Contact</a> |
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Manga%20Library.html" style="color: white;">Library</a>
+        </div>
+        <button class="dark-mode-button" id="darkModeToggle">🌑</button>
+    </div>
+
+    <script>
+        const darkModeToggle = document.getElementById("darkModeToggle");
+
+        darkModeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+    
+    <section class="manga-Blog">
+    </div>
+    <!-- Image Portfolio with Filtering -->
+    <div class="image-portfolio">
+        <!-- Manga Recommendation Cards -->
+        <div class="recommendation-card action">
+            <!-- ... (card content) ... -->
+        </div>
+        <!-- Repeat the above structure for the remaining recommendation cards -->
+        <!-- ... (add more recommendation cards here) ... -->
+    </div>
+</section>
+
+<div class="Blog-post">
+    <!-- Blog Card 1 -->
+    <div class="Blog-post-card">
+        <img src="https://images6.alphacoders.com/132/1320329.png" alt="Manga Title">
+        <h2 class="Blog-post-title">Is 120 minutes for episode 1 good?</h2>
+        <p class="Blog-post-excerpt">The inaugural episode of "Oshi no Ko" burst onto the screen with a resounding impact, etching an indelible mark on my psyche. This initial explosion of emotions led me to ponder over a significant aspect of the show's presentation - its duration. At a staggering 120 minutes, the first episode ventured into unconventional territory, prompting contemplation on whether this extended format aligns with the desires of anime enthusiasts. In my estimation, the efficacy of the narrative pacing emerged as a pivotal factor, underscoring that attempts to compress the entire storyline into a conventional 12-episode, 20-minute format would likely have yielded a calamitous outcome reminiscent of stereotypical anime.</p>
+        <p class="Blog-post-excerpt">"Oshi no Ko" commences its journey not with a mere whisper but with a resounding bang, immediately immersing its audience in a world of complex characters and intricate relationships. This audacious beginning establishes a lasting impression, leaving viewers like myself craving for more. Nevertheless, the lingering question remains: is an episode duration of 120 minutes a prudent choice? Traditionally, anime episodes adhere to a standard format of around 20 minutes, a duration that has become synonymous with the medium. It caters to the fast-paced modern lifestyle, providing short bursts of entertainment that can be consumed during brief breaks.</p>
+        <img src="https://images2.alphacoders.com/132/1323951.png" alt="Manga Title">
+        <p class="Blog-post-excerpt">However, the creators of "Oshi no Ko" diverged from this established norm, opting for a more cinematic approach. This choice was conspicuous in its impact, allowing for a deeper immersion into the narrative, characters, and the intricate web of their interactions. While a 120-minute episode may test the limits of conventional attention spans, the unfolding saga of "Oshi no Ko" manages to circumvent this potential hurdle by virtue of its engrossing storytelling.</p>
+        <p class="Blog-post-excerpt">Consider the alternative - attempting to encapsulate the same depth, emotion, and complexity into the familiar 20-minute segments spread across a standard 12-episode season. Such a condensed structure could have proven disastrous, hampering character development and sacrificing the nuances that contribute to the show's uniqueness. The risk of devolving into a run-of-the-mill, formulaic anime would have been significantly elevated. Instead, the elongated episode length provides ample room for the narrative to breathe, permitting the exploration of intricate emotions, gradual character evolution, and the gradual unfurling of the underlying mysteries.</p>
+        <img src="https://i.pinimg.com/originals/ec/cf/a9/eccfa96121427d82976915ade90fc435.jpg" alt="Manga Title">
+        <p class="Blog-post-excerpt">The charm of "Oshi no Ko" lies not only in its daring narrative choices but also in its willingness to challenge the conventions of its medium. By shattering the temporal confines of typical episodes, the series delivers an experience that beckons viewers to invest their time and emotions more deeply. While the 120-minute duration might initially appear audacious, it aligns harmoniously with the demands of the story, cultivating an atmosphere of anticipation and excitement.</p>
+        <p class="Blog-post-excerpt">In conclusion, the decision to craft the first episode of "Oshi no Ko" as a 120-minute spectacle was not merely an arbitrary extension but a calculated narrative choice that pays dividends in terms of engagement and emotional resonance. This departure from the norm speaks to the show's ambition and desire to carve a unique niche in the anime landscape. The resounding success of this daring gambit suggests that, when executed thoughtfully, deviating from established episode durations can be a powerful tool for storytelling that captivates and enchants audiences.</p>
+        <!-- Additional content -->
+        <p class="Author-date">Author: Kraaackers</p>
+        <p class="Author-date">Date: August 28, 2023</p>
+    </div>
+    <!-- Add more blog cards here if needed -->
+    
+    </div>
+    
+
+    <footer class="footer">
+        <p>&copy; 2023 Your Website Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>

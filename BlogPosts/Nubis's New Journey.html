@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            color: black;
+            text-align: center;
+            text-transform: uppercase; /* Capitalize all text */
+        }
+        body.dark-mode {
+            background-color: #262626;
+            color: white;
+        }
+        .header {
+            background-color: #FFD843;
+            color: black;
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .main-menu {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .main-menu a {
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+            color: black;
+        }
+        .main-menu a:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .dark-mode-button {
+            background-color: transparent;
+            border: none;
+            color: black;
+            cursor: pointer;
+            font-size: 18px;
+            transition: color 0.3s ease;
+            margin-top: 10px;
+        }
+        .dark-mode-button:hover {
+            color: #FFD843;
+        }
+        .footer {
+            background-color: #FFD843;
+            color: black;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            width: 100%;
+            bottom: 0px;
+            margin-top: 20px;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            z-index: 999;
+            border-radius: 25%;
+        }
+        .logo img {
+            width: 50%;
+        }
+        
+        .Blog-post {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px auto 5px;
+}
+
+.Blog-post-card {
+    background-color: #fff;
+    border: none;
+    border-radius: 0 40px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 0px; /* Adjust margin for spacing between recommendation cards */
+    width: 800px; /* Increase width to make recommendation cards wider */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    color: inherit; /* Use the color of the parent element */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 10px 20px; /* Adjust padding as needed */
+    
+}
+    
+    .Blog-post-card img {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    margin-bottom:5px;
+}
+
+.Blog-post-title {
+    font-size: 25px; /* Adjust the font size to your preference */
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.Blog-post-excerpt {
+    font-size: 10px;
+    color: #black;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+    line-height: 2.1;
+}
+
+.Author-date {
+    font-size: 10px;
+    color: #777;
+    margin-top: 5px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+
+
+body.dark-mode .Blog-post-card {
+    /* Apply dark mode background color and text color to recommendation cards */
+    background-color: #333;
+    color: white;
+
+}
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="https://i.ibb.co/NyxrmGp/Nubis-Manga-Icon-2.png" alt="Logo">
+        </div>
+        <div class="main-menu">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Nubis.html#" style="color: white;">Home</a> |
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/About.html" style="color: white;">About</a> |
+            <a href="#" style="color: white;">Contact</a> |
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Manga%20Library.html" style="color: white;">Library</a>
+        </div>
+        <button class="dark-mode-button" id="darkModeToggle">🌑</button>
+    </div>
+
+    <script>
+        const darkModeToggle = document.getElementById("darkModeToggle");
+
+        darkModeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+    
+    <section class="manga-Blog">
+    </div>
+    <!-- Image Portfolio with Filtering -->
+    <div class="image-portfolio">
+        <!-- Manga Recommendation Cards -->
+        <div class="recommendation-card action">
+            <!-- ... (card content) ... -->
+        </div>
+        <!-- Repeat the above structure for the remaining recommendation cards -->
+        <!-- ... (add more recommendation cards here) ... -->
+    </div>
+</section>
+
+<div class="Blog-post">
+    <!-- Blog Card 1 -->
+    <div class="Blog-post">
+    <!-- Blog Card 1 -->
+    <div class="Blog-post-card">
+        <img src="https://i.ibb.co/3pXrLrp/1043655-illustration-planet-space-reflection-Earth-manga-underwater-atmosphere-One-Piece-universe-wa.png" alt="Manga Reading Website">
+        <h2 class="Blog-post-title">Crafting a Unique Manga Reading Experience</h2>
+        <p class="Blog-post-excerpt">Embarking on a creative journey fueled by inspiration from the beloved Manga Rock app, I've set sail to craft a manga reading website that stands apart from the rest. The memory of Manga Rock, a once-iconic manga reading app on iOS, has served as a catalyst for my vision, spurring me to forge a unique path in the digital realm. With an amalgamation of creativity and a genuine passion for the medium, I'm shaping a platform that not only pays homage to what was but ushers in what can be – an exciting, cool, and enjoyable experience for manga enthusiasts.</p>
+        <p class="Blog-post-excerpt">Within the digital realm I'm building, an innovative menu takes center stage, offering access to various captivating destinations. The homepage greets visitors with a modern banner, a dynamic carousel that entices exploration. This visual journey captures the essence of manga's diversity, sparking curiosity from the moment users land on the website.</p>
+        <img src="https://c4.wallpaperflare.com/wallpaper/861/618/473/monkey-d-luffy-portgas-d-ace-sabo-one-piece-wallpaper-thumb.jpg" alt="Blog Posts">
+        <p class="Blog-post-excerpt">Transitioning to the Blog Posts section, the aesthetics reflect clean and contemporary styling, designed to captivate readers. Here, a wealth of engaging content awaits, catering to diverse tastes and interests. From insightful analyses to immersive reviews, this section becomes a literary haven for those seeking to delve deeper into the world of manga and its intricacies.</p>
+        <p class="Blog-post-excerpt">Venturing further, the Recommendations section stands ready to guide readers on a personalized journey. By drawing connections between their preferences and uncharted manga and anime territories, this feature acts as a compass, directing users towards new horizons that align with their tastes. The magic lies in the art of discovery, as enthusiasts unearth hidden gems that resonate with their sensibilities.</p>
+        <img src="https://images.wallpapersden.com/image/download/monkey-d-luffy-manga_bGlsZ26UmZqaraWkpJRta21lrWloZ2U.jpg" alt="Manga Library">
+        <p class="Blog-post-excerpt">As the landscape of the website unfolds, the Manga Library emerges as the crown jewel – the pièce de résistance that beckons manga aficionados far and wide. This curated sanctuary features an array of manga titles, each awaiting exploration. The allure lies in the prospect of picking one title from a sea of options, where users can then embark on a literary adventure that captures their imagination.</p>
+        <p class="Blog-post-excerpt">Taking the plunge, users select a manga that beckons to them, leading them to a dedicated manga info page. Here, a treasure trove of information awaits, illuminating the story, characters, and more. As they scroll down, the anticipation crescendos, culminating in the sacred reading mode – an experience akin to being transported into the very heart of the manga's narrative. Each turn of the virtual page carries the reader deeper into the story, forging an intimate connection with the characters and their struggles.</p>
+        <p class="Blog-post-excerpt">But this endeavor is not a destination; rather, it is a constantly evolving voyage. The ship has sailed, indeed, but the journey has only just begun. The website stands as a canvas where every stroke of creativity and innovation shapes the landscape further. With a dedication to excellence and an unwavering love for manga, I'm poised to chart new territories, elevate the reader experience, and nurture a community bound by the shared joy of exploring the captivating realms of manga and anime.</p>
+        <!-- Additional content -->
+        <p class="Author-date">Author: Kraaackers</p>
+        <p class="Author-date">Date: August 28, 2023</p>
+    </div>
+    <!-- Add more blog cards here if needed -->
+    
+    </div>
+    
+
+    <footer class="footer">
+        <p>&copy; 2023 Your Website Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
