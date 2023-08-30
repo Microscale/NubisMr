@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Images</title>
+</head>
+<body>
+    <div id="imageContainer"></div>
+
+    <script>
+        const url = "https://h.mangabat.com/read-ws401037-chap-13";
+
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data, "text/html");
+                const imgTags = doc.querySelectorAll("img");
+                const imageContainer = document.getElementById("imageContainer");
+
+                imgTags.forEach(imgTag => {
+                    const img = document.createElement("img");
+                    img.src = imgTag.getAttribute("src");
+                    img.alt = imgTag.getAttribute("alt");
+                    img.width = imgTag.getAttribute("width");
+                    img.height = imgTag.getAttribute("height");
+                    img.className = imgTag.getAttribute("class");
+                    imageContainer.appendChild(img);
+                });
+            })
+            .catch(error => console.error("Error fetching content:", error));
+
+
+            const express = require('express');
+const fetch = require('node-fetch');
+
+const app = express();
+const port = 3001; // Choose a port for your proxy server
+
+app.get('/proxy', async (req, res) => {
+    try {
+        const targetUrl = req.query.url;
+        const response = await fetch(targetUrl, {
+            headers: {
+                'Origin': 'http://127.0.0.1:5500', // Replace with your actual origin
+                // Add other headers if needed
+            }
+        });
+        const content = await response.text();
+        res.send(content);
+    } catch (error) {
+        console.error('Error fetching content:', error);
+        res.status(500).send('Error fetching content');
+    }
+});
+
+app.listen(port, () => {
+    console.log(`Proxy server is running on port ${port}`);
+});
+
+    </script>
+</body>
+</html>
