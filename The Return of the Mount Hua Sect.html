@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            color: black;
+            text-align: center;
+            text-transform: uppercase; /* Capitalize all text */
+        }
+        body.dark-mode {
+            background-color: #262626;
+            color: white;
+        }
+        .header {
+            background-color: #FFD843;
+            color: black;
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .main-menu {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+       .main-menu a {
+            padding: 5px 10px;
+            font-size: 14px; /* Reduce font size for menu items */
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+            color: black;
+        }
+        .main-menu a:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .dark-mode-button {
+            background-color: transparent;
+            border: none;
+            color: black;
+            cursor: pointer;
+            font-size: 18px;
+            transition: color 0.3s ease;
+            margin-top: 10px;
+        }
+        .dark-mode-button:hover {
+            color: #FFD843;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            z-index: 999;
+            border-radius: 25%;
+        }
+        .logo img {
+            width: 50%;
+        }
+        .footer {
+            background-color: #FFD843;
+            color: black;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            width: 100%;
+            bottom: 0px;
+            margin-top: 20px; /* Add spacing above the footer */
+        }
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="https://i.ibb.co/NyxrmGp/Nubis-Manga-Icon-2.png" alt="Logo">
+        </div>
+        <div class="main-menu">
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Nubis.html" style="color: white;">Home</a> |
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/About.html#" style="color: white;">About</a> |
+            <a href="#" style="color: white;">Contact</a> |
+            <a href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Manga%20Library.html" style="color: white;">Library</a>
+        </div>
+        <button class="dark-mode-button" id="darkModeToggle">🌑</button>
+    </div>
+
+    <script>
+        const darkModeToggle = document.getElementById("darkModeToggle");
+
+        darkModeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* ... (previous styles) ... */
+
+        /* New style for manga information page */
+        .manga-info-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 0px;
+            position: relative; /* Add this to establish a positioning context */
+        }
+        
+        .manga-info-page::before {
+    content: ""; /* Create the pseudo-element */
+    background-image: url('https://asura.nacm.xyz/wp-content/uploads/2021/03/cover.jpg'); /* Set the background image */
+    filter: blur(10px); /* Apply the blur effect */
+    position: absolute; /* Position the pseudo-element */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    z-index: 0; /* Place the background behind the cover */
+}
+
+        .manga-cover {
+            width: 200px; /* Adjust as needed */
+            height: auto;
+            margin-bottom: 1rem;
+            position: relative; /* Add this to establish a positioning context */
+            z-index: 1; /* Ensure the cover is above the background */
+        }
+
+        .manga-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+
+        .manga-author {
+            font-size: 18px;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .manga-rating {
+            font-size: 18px;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .manga-genres {
+            font-size: 18px;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .manga-description {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #666;
+            max-width: 600px; /* Adjust as needed */
+            margin-bottom: 2rem;
+        }
+
+        .manga-status {
+            font-size: 18px;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .manga-label {
+            font-size: 18px; /* Font size for label parts */
+            color: #888;
+            margin-bottom: -0.5rem; /* Adjust margin for spacing */
+        }
+
+        .manga-content {
+            font-size: 16px; /* Font size for content parts */
+            line-height: 1.5;
+            color: #666;
+            max-width: 600px; /* Adjust as needed */
+            margin-bottom: 0.2rem; /* Adjust margin for spacing */
+        }
+        
+        
+        .container {
+    background-color: #f4f4f4; /* Light mode background color */
+    transition: background-color 0.3s ease;
+    
+}
+
+body.dark-mode .container {
+    background-color: #333; /* Dark mode background color */
+    color: white; /* Change text color to match dark mode */
+    
+}
+        
+    chapter-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+    
+}
+
+.chapter-button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    background-color: white;
+    color: #FFD843;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-transform: uppercase; /* Capitalize all text */
+    text-decoration: none; /* Remove underline */
+}
+
+.chapter-button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+/* Dark mode styles for chapter button */
+body.dark-mode .chapter-button {
+    background-color: #262626; /* Adjust this color as needed */
+    color: #FFD843;
+}
+
+body.dark-mode .chapter-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Style for pagination buttons */
+.pagination-button {
+    background-color: #FFD843;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination-button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+/* Dark mode styles for pagination buttons */
+body.dark-mode .pagination-button {
+    color: white;
+    background-color: #262626;
+    
+    
+    
+}
+
+
+
+        
+    </style>
+
+<Style>
+
+/* Chapters Header */
+.chapters-header {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding-top:20px;
+}
+</Style>
+
+</head>
+<body>
+    <div class="header">
+        <!-- ... (logo, main menu, dark mode toggle) ... -->
+    </div>
+
+<!-- Manga Information Page -->
+    <div class="manga-info-page">
+        <img class="manga-cover" src="https://asura.nacm.xyz/wp-content/uploads/2021/03/cover.jpg" alt="Manga Cover">
+        <h1 class="manga-title">The Return of the Mount Hua Sect</h1>
+        <p class="manga-label"><strong>Author:</strong></p>
+        <p class="manga-content">Biga</p>
+        <p class="manga-label"><strong>Rating:</strong></p>
+        <p class="manga-content">10.0</p>
+        <p class="manga-label"><strong>Genres:</strong></p>
+        <p class="manga-content">Adventure, Comedy, Fantasy, Martial Arts, Rebirth, Shounen</p>
+        <p class="manga-label"><strong>Description:</strong></p>
+        <p class="manga-content">
+            Chung Myung, The 13th Disciple of the Mount Hua Sect, One of the 3 Great Swordsmen, Plum Blossom Sword Saint, defeated Chun Ma, who brought destruction and disarray onto the world. After the battle, he breathes his last breath on top of the headquarter mountain of the Heavenly Demon Sect. He is reborn after 100 years in the body of a child. ……What? The Mount Hua Sect has fallen? What kind of nonsense is that!?
+        </p>
+        <p class="manga-label"><strong>Status:</strong></p>
+        <p class="manga-content">Ongoing</p>
+        <!-- Add more content as needed -->
+    </div>
+    
+    <div class="container">
+    
+
+
+    
+    <!-- Chapters Header -->
+    <h2 class="chapters-header">Chapters</h2>
+    
+    <!-- List of Chapter Buttons -->
+    <div class="chapter-list">
+        <a class="chapter-button" href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Reader/The%20Return%20of%20the%20Mount%20Hua%20Sect%20/Return%20of%20the%20Mount%20Hua%20Sect%20Chapter%201.html">Chapter 1</a>
+
+<a class="chapter-button" href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Reader/The%20Return%20of%20the%20Mount%20Hua%20Sect%20/Return%20of%20the%20Mount%20Hua%20Sect%20Chapter%202.html">Chapter 2</a>
+
+<a class="chapter-button" href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Reader/The%20Return%20of%20the%20Mount%20Hua%20Sect%20/Return%20of%20the%20Mount%20Hua%20Sect%20Chapter%203.html">Chapter 3</a>
+
+<a class="chapter-button" href="file:///Users/rudyshen/Documents/GitHub/NubisMR-Website/NubisMR%20website%20HTML/Mangas/Manga%20Reader/The%20Return%20of%20the%20Mount%20Hua%20Sect%20/Return%20of%20the%20Mount%20Hua%20Sect%20Chapter%203.html">Chapter 4</a>
+
+<a class="chapter-button" href="">Chapter 5</a>
+
+<a class="chapter-button" href="">Chapter 6</a>
+
+<a class="chapter-button" href="">Chapter 7</a>
+        
+<a class="chapter-button" href="">Chapter 8</a>
+
+<a class="chapter-button" href="">Chapter 9</a>
+
+
+        
+        </div>
+        <!-- Add more buttons for each chapter -->
+        
+        <!-- Pagination (First Page) -->
+    <div class="pagination">
+        <button class="pagination-button">1</button>
+        <button class="pagination-button">2</button>
+        <button class="pagination-button">3</button>
+        <button class="pagination-button">4</button>
+        <button class="pagination-button">5</button>
+        <!-- Add more pagination buttons as needed -->
+    </div>
+    
+    
+        
+      
+    <footer class="footer">
+        <p>&copy; 2023 Your Website Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        /* ... (dark mode toggle script) ... */
+    </script>
+</body>
+</html>
+
+    
+</body>
+</html>
