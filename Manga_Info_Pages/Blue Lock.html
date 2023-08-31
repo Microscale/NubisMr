@@ -71,11 +71,13 @@
             background-color: #FFD843;
             color: black;
             text-align: center;
-            padding: 1rem;
+            padding: 0rem;
             position: relative;
             width: 100%;
             bottom: 0px;
-            margin-top: 20px; /* Add spacing above the footer */
+            margin-top: 20px;
+ 	    padding-top: 1rem;
+	    padding-bottom: 1rem;
         }
         .footer p {
             margin: 0;
@@ -126,7 +128,7 @@
         
         .manga-info-page::before {
     content: ""; /* Create the pseudo-element */
-    background-image: url('https://mangadex.org/covers/4141c5dc-c525-4df5-afd7-cc7d192a832f/08e1e33e-50c3-49a4-a196-039b62cf7b4b.jpg.512.jpg'); /* Set the background image */
+    background-image: url('https://cdn.myanimelist.net/s/common/store/cover/9313/ba043776b9bead89c89d7fd39552089bc0e96d9e1f6a3335d14b8e304a48f649/l.jpg'); /* Set the background image */
     filter: blur(10px); /* Apply the blur effect */
     position: absolute; /* Position the pseudo-element */
     top: 0;
@@ -145,31 +147,31 @@
         }
 
         .manga-title {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             margin-bottom: 0.25rem;
         }
 
         .manga-author {
-            font-size: 18px;
+            font-size: 16px;
             color: #888;
             margin-bottom: 0.5rem;
         }
 
         .manga-rating {
-            font-size: 18px;
+            font-size: 16px;
             color: #888;
             margin-bottom: 0.5rem;
         }
 
         .manga-genres {
-            font-size: 18px;
+            font-size: 16px;
             color: #888;
             margin-bottom: 0.5rem;
         }
 
         .manga-description {
-            font-size: 16px;
+            font-size: 14px;
             line-height: 1.5;
             color: #666;
             max-width: 600px; /* Adjust as needed */
@@ -177,19 +179,19 @@
         }
 
         .manga-status {
-            font-size: 18px;
+            font-size: 16px;
             color: #888;
             margin-bottom: 0.5rem;
         }
 
         .manga-label {
-            font-size: 18px; /* Font size for label parts */
+            font-size: 16px; /* Font size for label parts */
             color: #888;
             margin-bottom: -0.5rem; /* Adjust margin for spacing */
         }
 
         .manga-content {
-            font-size: 16px; /* Font size for content parts */
+            font-size: 14px; /* Font size for content parts */
             line-height: 1.5;
             color: #666;
             max-width: 600px; /* Adjust as needed */
@@ -302,18 +304,17 @@ body.dark-mode .pagination-button {
 
 <!-- Manga Information Page -->
     <div class="manga-info-page">
-        <img class="manga-cover" src="https://mangadex.org/covers/4141c5dc-c525-4df5-afd7-cc7d192a832f/08e1e33e-50c3-49a4-a196-039b62cf7b4b.jpg.512.jpg" alt="Manga Cover">
+        <img class="manga-cover" src="https://cdn.myanimelist.net/s/common/store/cover/9313/ba043776b9bead89c89d7fd39552089bc0e96d9e1f6a3335d14b8e304a48f649/l.jpg" alt="Manga Cover">
         <h1 class="manga-title">Blue Lock</h1>
         <p class="manga-label"><strong>Author:</strong></p>
-        <p class="manga-content">Kaneshiro Muneyuki, Nomura Yuusuke</p>
+        <p class="manga-content">KANESHIRO MUNEYUKI, NOMURA YUUSUKE</p>
         <p class="manga-label"><strong>Rating:</strong></p>
         <p class="manga-content">9.20</p>
         <p class="manga-label"><strong>Genres:</strong></p>
         <p class="manga-content">THRILLER, AWARD WINNING, ACTION, PSYCHOLOGICAL, SPORTS, DRAMA, SCHOOL LIFE, SLICE OF LIFE</p>
         <p class="manga-label"><strong>Description:</strong></p>
         <p class="manga-content">
-            Yoichi Isagi lost the opportunity to go to the national high school championships because he passed to his teammate who missed instead of shooting himself. Isagi is one of 300 U-18 strikers chosen by Jinpachi Ego, a man who was hired by the Japan Football Association after the 2018 FIFA World Cup, to guide Japan to winning the World Cup by destroying Japanese football. Ego's plan is to isolate the 300 strikers into a prison-like institution called "Blue Lock", in order to create the world's biggest "egotist"/striker, which has been lacking in Japanese football.
-        </p>
+            YOICHI ISAGI LOST THE OPPORTUNITY TO GO TO THE NATIONAL HIGH SCHOOL CHAMPIONSHIPS BECAUSE HE PASSED TO HIS TEAMMATE WHO MISSED INSTEAD OF SHOOTING HIMSELF. ISAGI IS ONE OF 300 U-18 STRIKERS CHOSEN BY JINPACHI EGO, A MAN WHO WAS HIRED BY THE JAPAN FOOTBALL ASSOCIATION AFTER THE 2018 FIFA WORLD CUP, TO GUIDE JAPAN TO WINNING THE WORLD CUP BY DESTROYING JAPANESE FOOTBALL. EGO'S PLAN IS TO ISOLATE THE 300 STRIKERS INTO A PRISON-LIKE INSTITUTION CALLED "BLUE LOCK", IN ORDER TO CREATE THE WORLD'S BIGGEST "EGOTIST"/STRIKER, WHICH HAS BEEN LACKING IN JAPANESE FOOTBALL.
         <p class="manga-label"><strong>Status:</strong></p>
         <p class="manga-content">Ongoing</p>
         <!-- Add more content as needed -->
@@ -322,25 +323,16 @@ body.dark-mode .pagination-button {
     <div class="container">
     
 
-
+<h2 class="chapters-header">Chapters</h2>
     
-    <!-- Chapters Header -->
-    <h2 class="chapters-header">Chapters</h2>
-    
-    <!-- List of Chapter Buttons -->
     <div class="chapter-list">
-        <button class="chapter-button">Chapter 1</button>
-        <button class="chapter-button">Chapter 2</button>
-        <button class="chapter-button">Chapter 3</button>
-        <button class="chapter-button">Chapter 4</button>
-        <button class="chapter-button">Chapter 5</button>
-        <button class="chapter-button">Chapter 6</button>
-        <button class="chapter-button">Chapter 7</button>
-        <button class="chapter-button">Chapter 8</button>
-        <button class="chapter-button">Chapter 9</button>
-        <button class="chapter-button">Chapter 10</button>
-        
-        </div>
+    <a href=""><button class="chapter-button">Chapter 1</button></a>
+    <a href=""><button class="chapter-button">Chapter 2</button></a>
+    <a href=""><button class="chapter-button">Chapter 3</button></a>
+	
+    <!-- Add more buttons in the same format -->
+</div>
+	
         <!-- Add more buttons for each chapter -->
         
         <!-- Pagination (First Page) -->
@@ -363,9 +355,5 @@ body.dark-mode .pagination-button {
     <script>
         /* ... (dark mode toggle script) ... */
     </script>
-</body>
-</html>
-
-    
 </body>
 </html>
