@@ -71,11 +71,13 @@
             background-color: #FFD843;
             color: black;
             text-align: center;
-            padding: 1rem;
+            padding: 0rem;
             position: relative;
             width: 100%;
             bottom: 0px;
-            margin-top: 20px; /* Add spacing above the footer */
+            margin-top: 20px;
+ 	    padding-top: 1rem;
+	    padding-bottom: 1rem;
         }
         .footer p {
             margin: 0;
@@ -126,7 +128,7 @@
         
         .manga-info-page::before {
     content: ""; /* Create the pseudo-element */
-    background-image: url('https://mangadex.org/covers/d2df017b-c003-4de6-9625-4f1fba7aef97/4602ab68-0eb7-42a3-bfba-5d90ec19ca40.jpg.512.jpg'); /* Set the background image */
+    background-image: url('https://cdn.myanimelist.net/images/manga/1/248716.jpg'); /* Set the background image */
     filter: blur(10px); /* Apply the blur effect */
     position: absolute; /* Position the pseudo-element */
     top: 0;
@@ -302,18 +304,17 @@ body.dark-mode .pagination-button {
 
 <!-- Manga Information Page -->
     <div class="manga-info-page">
-        <img class="manga-cover" src="https://mangadex.org/covers/d2df017b-c003-4de6-9625-4f1fba7aef97/4602ab68-0eb7-42a3-bfba-5d90ec19ca40.jpg.512.jpg" alt="Manga Cover">
-        <h1 class="manga-title">How to Fight</h1>
+        <img class="manga-cover" src="https://cdn.myanimelist.net/images/manga/1/248716.jpg" alt="Manga Cover">
+        <h1 class="manga-title">How To Fight</h1>
         <p class="manga-label"><strong>Author:</strong></p>
-        <p class="manga-content">Park Tae Joon, Kim Junghyun</p>
+        <p class="manga-content">Park tae Joon, Kim Junghyun</p>
         <p class="manga-label"><strong>Rating:</strong></p>
         <p class="manga-content">8.90</p>
         <p class="manga-label"><strong>Genres:</strong></p>
         <p class="manga-content">ACTION, LONG STRIP, COMEDY, MARTIAL ARTS, DRAMA</p>
         <p class="manga-label"><strong>Description:</strong></p>
         <p class="manga-content">
-            Good for nothing Yoo Hobin is always bullied by students who feel superior to him, yet he ignores them as his life is all too difficult already. However, an unintentional incident ends up turning his life around. He becomes famous through a viral video that he didn't even intend to upload! Everything is perfect! He instantly becomes famous and starts earning money from the accidental video he uploaded.But since it was unintentional, he is unable to reproduce it. Fueled by the potential money to be made and his sudden surge of popularity, he plans to make more captivating videos that people will find interesting and help him gather more subscribers… However, he cannot accomplish any of that unless he learns HOW TO FIGHT.
-        </p>
+            YOO HOBIN IS ALWAYS BULLIED BY STUDENTS WHO FEEL SUPERIOR TO HIM, YET HE IGNORES THEM AS HIS LIFE IS ALL TOO DIFFICULT ALREADY. HOWEVER, AN UNINTENTIONAL INCIDENT ENDS UP TURNING HIS LIFE AROUND. HE BECOMES FAMOUS THROUGH A VIRAL VIDEO THAT HE DIDN'T EVEN INTEND TO UPLOAD! EVERYTHING IS PERFECT! HE INSTANTLY BECOMES FAMOUS AND STARTS EARNING MONEY FROM THE ACCIDENTAL VIDEO HE UPLOADED.BUT SINCE IT WAS UNINTENTIONAL, HE IS UNABLE TO REPRODUCE IT. FUELED BY THE POTENTIAL MONEY TO BE MADE AND HIS SUDDEN SURGE OF POPULARITY, HE PLANS TO MAKE MORE CAPTIVATING VIDEOS THAT PEOPLE WILL FIND INTERESTING AND HELP HIM GATHER MORE SUBSCRIBERS…
         <p class="manga-label"><strong>Status:</strong></p>
         <p class="manga-content">Ongoing</p>
         <!-- Add more content as needed -->
@@ -322,25 +323,16 @@ body.dark-mode .pagination-button {
     <div class="container">
     
 
-
+<h2 class="chapters-header">Chapters</h2>
     
-    <!-- Chapters Header -->
-    <h2 class="chapters-header">Chapters</h2>
-    
-    <!-- List of Chapter Buttons -->
     <div class="chapter-list">
-        <button class="chapter-button">Chapter 1</button>
-        <button class="chapter-button">Chapter 2</button>
-        <button class="chapter-button">Chapter 3</button>
-        <button class="chapter-button">Chapter 4</button>
-        <button class="chapter-button">Chapter 5</button>
-        <button class="chapter-button">Chapter 6</button>
-        <button class="chapter-button">Chapter 7</button>
-        <button class="chapter-button">Chapter 8</button>
-        <button class="chapter-button">Chapter 9</button>
-        <button class="chapter-button">Chapter 10</button>
-        
-        </div>
+    <a href=""><button class="chapter-button">Chapter 1</button></a>
+    <a href=""><button class="chapter-button">Chapter 2</button></a>
+    <a href=""><button class="chapter-button">Chapter 3</button></a>
+	
+    <!-- Add more buttons in the same format -->
+</div>
+	
         <!-- Add more buttons for each chapter -->
         
         <!-- Pagination (First Page) -->
@@ -363,9 +355,5 @@ body.dark-mode .pagination-button {
     <script>
         /* ... (dark mode toggle script) ... */
     </script>
-</body>
-</html>
-
-    
 </body>
 </html>
