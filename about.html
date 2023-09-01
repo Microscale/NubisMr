@@ -380,10 +380,15 @@ body.dark-mode .discord-section {
 
     <script>
 const mobileMenuIcon = document.getElementById("mobileMenuIcon");
-const mobileMenu = document.querySelector(".mobile-menu");
+const mainMenu = document.querySelector(".main-menu");
 
 mobileMenuIcon.addEventListener("click", () => {
-    mobileMenu.classList.toggle("menu-open");
+    mainMenu.classList.toggle("menu-open");
+});
+
+// Add this part to close the menu when the button is clicked again
+mainMenu.addEventListener("click", () => {
+    mainMenu.classList.remove("menu-open");
 });
         
     </script>
