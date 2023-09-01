@@ -50,38 +50,6 @@
             background-color: rgba(0, 0, 0, 0.2);
 
         }
-
-@media screen and (max-width: 768px) {
-    .main-menu {
-        display: none; /* Hide the main menu */
-    }
-
-    /* Style for the menu icon */
-    .menu-icon {
-        display: block;
-        font-size: 24px; /* Adjust the size as needed */
-        cursor: pointer;
-    }
-
-    /* Show the menu when the menu icon is clicked */
-    .menu-open .main-menu {
-        display: flex;
-        flex-direction: column;
-        background-color: #FFD843;
-        position: absolute;
-        top: 50px; /* Adjust the distance from the top as needed */
-        left: 0;
-        right: 0;
-        z-index: 1000;
-    }
-
-    /* Style for individual menu items in the expanded menu */
-    .menu-open .main-menu a {
-        padding: 10px;
-        font-size: 18px; /* Adjust the size as needed */
-        text-align: center;
-            
-        }
         .dark-mode-button {
             background-color: transparent;
             border: none;
@@ -280,7 +248,6 @@ body.dark-mode .discord-section {
         <div class="logo">
             <img src="https://i.ibb.co/NyxrmGp/Nubis-Manga-Icon-2.png" alt="Logo">
         </div>
-        <div class="menu-icon" id="menuIcon">☰</div>
         <div class="main-menu">
             <a href="index" style="color: white;">Home</a> |
             <a href="about" style="color: white;">About</a> |
@@ -376,18 +343,6 @@ body.dark-mode .discord-section {
 <section class="text-section">
     <!-- ... (about us content) ... -->
 </section>
-
-    <script>
-
-const menuIcon = document.getElementById("menuIcon");
-const mainMenu = document.querySelector(".main-menu");
-
-menuIcon.addEventListener("click", () => {
-    mainMenu.classList.toggle("menu-open");
-});
-
-        
-    </script>
 
     <footer class="footer">
         <p>&copy; 2023 Nubis Manga Reader. All rights reserved.</p>
