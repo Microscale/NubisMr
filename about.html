@@ -77,23 +77,19 @@
             margin: 0;
             font-size: 14px;
         }
-        .logo {
+        @media screen and (max-width: 768px) {
+    /* Hide the logo on smaller screens */
+    .logo {
             position: absolute;
             top: 10px;
             left: 5px;
             z-index: 999;
             border-radius: 25%;
+            display: none;
         }
         .logo img {
             width: 50%;
         }
-
-     /* Media query to hide the logo on screens with a maximum width of 768px (adjust as needed) */
-@media screen and (max-width: 768px) {
-    .logo img {
-        display: none; /* Hide the logo on smaller screens */
-        
-    }
         
         /* Common styles for both light and dark modes */
 .profile-section {
