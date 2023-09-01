@@ -88,10 +88,51 @@
         .logo img {
             width: 50%;
         }
+
         
-        @media screen and (max-width: 768px) {
+/* Style for the mobile menu icon (☰) */
+.mobile-menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+}
+
+/* Media query for screens with a maximum width of 768px (adjust as needed) */
+@media screen and (max-width: 768px) {
+    /* Hide the logo on smaller screens */
     .logo {
-        display: none; /* Hide the logo on smaller screens */
+        display: none;
+    }
+
+    /* Show the mobile menu icon (☰) */
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    /* Hide the main menu by default on smaller screens */
+    .main-menu {
+        display: none;
+    }
+
+    /* Style the main menu when it's open */
+    .main-menu.menu-open {
+        display: flex;
+        flex-direction: column;
+        background-color: #FFD843;
+        position: absolute;
+        top: 50px; /* Adjust the distance from the top as needed */
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+    /* Style individual menu items in the expanded menu */
+    .main-menu.menu-open a {
+        padding: 10px;
+        font-size: 18px; /* Adjust the size as needed */
+        text-align: center;
+    }
+    
     }
 }
         
@@ -251,6 +292,7 @@ body.dark-mode .discord-section {
 </head>
 <body>
     <div class="header">
+        <div class="mobile-menu-icon" id="mobileMenuIcon">☰</div>
         <div class="logo">
             <img src="https://i.ibb.co/NyxrmGp/Nubis-Manga-Icon-2.png" alt="Logo">
         </div>
@@ -349,6 +391,18 @@ body.dark-mode .discord-section {
 <section class="text-section">
     <!-- ... (about us content) ... -->
 </section>
+
+<script>
+
+    const mobileMenuIcon = document.getElementById("mobileMenuIcon");
+const mainMenu = document.querySelector(".main-menu");
+
+mobileMenuIcon.addEventListener("click", () => {
+    mainMenu.classList.toggle("menu-open");
+});
+    
+</script>
+    
 
     <footer class="footer">
         <p>&copy; 2023 Nubis Manga Reader. All rights reserved.</p>
