@@ -966,6 +966,13 @@ filterButtons.forEach(button => {
     });
 });
 
+const menuToggle = document.getElementById("menuToggle");
+const mainMenu = document.querySelector(".main-menu");
+
+menuToggle.addEventListener("click", () => {
+    mainMenu.classList.toggle("active");
+});
+        
 </Script>
 
 
