@@ -86,6 +86,13 @@
         .logo img {
             width: 50%;
         }
+
+         /* Media query to hide the logo on smaller screens */
+@media (max-width: 468px) {
+    .logo {
+        display: none;
+    }
+}
         
         .image-carousel {
             width: calc(100% - 20px); /* Subtract 20px for padding on both sides */
