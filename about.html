@@ -88,39 +88,10 @@
             width: 50%;
         }
 
-        /* Style for the mobile menu icon (☰) */
-.mobile-menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* Style for the mobile menu items */
-.mobile-menu {
-    display: none;
-}
-
-/* Media query for screens with a maximum width of 768px (adjust as needed) */
-@media screen and (max-width: 768px) {
-    /* Hide the logo on smaller screens */
+        @media screen and (max-width: 768px) {
     .logo {
-    .main-menu
-        display: none;
-    }
+        display: none; /* Hide the main menu */
 
-    /* Show the mobile menu items */
-    .mobile-menu {
-        display: flex;
-        flex-direction: row; /* Display items horizontally */
-        align-items: center; /* Vertically center items */
-    }
-
-    /* Style individual mobile menu items */
-    .mobile-menu a {
-        padding: 10px;
-        font-size: 18px; /* Adjust the size as needed */
-        text-align: center;
-        color: black;
-        text-decoration: none;
     }
         
         /* Common styles for both light and dark modes */
@@ -279,11 +250,10 @@ body.dark-mode .discord-section {
 </head>
 <body>
     <div class="header">
-        <div class="mobile-menu-icon" id="mobileMenuIcon">☰</div>
         <div class="logo">
             <img src="https://i.ibb.co/NyxrmGp/Nubis-Manga-Icon-2.png" alt="Logo">
         </div>
-        <div class="mobile-menu">
+        <div class="main-menu">
             <a href="index" style="color: white;">Home</a> |
             <a href="about" style="color: white;">About</a> |
             <a href="#" style="color: white;">Contact</a> |
@@ -379,20 +349,6 @@ body.dark-mode .discord-section {
     <!-- ... (about us content) ... -->
 </section>
 
-    <script>
-const mobileMenuIcon = document.getElementById("mobileMenuIcon");
-const mainMenu = document.querySelector(".main-menu");
-
-mobileMenuIcon.addEventListener("click", () => {
-    mainMenu.classList.toggle("menu-open");
-});
-
-// Add this part to close the menu when the button is clicked again
-mainMenu.addEventListener("click", () => {
-    mainMenu.classList.remove("menu-open");
-});
-        
-    </script>
 
     <footer class="footer">
         <p>&copy; 2023 Nubis Manga Reader. All rights reserved.</p>
