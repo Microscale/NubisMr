@@ -437,24 +437,28 @@ body.dark-mode .video-card {
     </div>
 
     <script>
-        const darkModeToggle = document.getElementById("darkModeToggle");
+    // Retrieve the dark mode preference from localStorage
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
 
-        darkModeToggle.addEventListener("click", () => {
-            document.body.classList.toggle("dark-mode");
-        });
+    // Function to set dark mode
+    function setDarkMode(isDark) {
+        document.body.classList.toggle("dark-mode", isDark);
+    }
 
-const darkModeToggle = document.getElementById("darkModeToggle");
+    // Set dark mode based on the user's preference
+    setDarkMode(isDarkMode);
 
-darkModeToggle.addEventListener("click", () => {
-    // Toggle dark mode class on the body
-    document.body.classList.toggle("dark-mode");
+    const darkModeToggle = document.getElementById("darkModeToggle");
 
-    // Update user's dark mode preference
-    const isDarkMode = document.body.classList.contains("dark-mode");
-    localStorage.setItem("darkMode", isDarkMode.toString());
-});
-        
-    </script>
+    darkModeToggle.addEventListener("click", () => {
+        // Toggle dark mode class on the body
+        document.body.classList.toggle("dark-mode");
+
+        // Update user's dark mode preference
+        const isDarkMode = document.body.classList.contains("dark-mode");
+        localStorage.setItem("darkMode", isDarkMode.toString());
+    });
+</script>
     
     <section class="image-carousel">
     <div class="carousel-slide">
