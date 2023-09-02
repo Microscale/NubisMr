@@ -94,6 +94,20 @@
         display: none;
     }
 }
+
+.button-text {
+    font-size: 7px;
+    color: #333;
+    text-align: center;
+    display: block; /* Ensures each text is on a new line */
+    margin-left: 3.5px;
+    margin-right: 3.5px;
+    margin-top: 1px;
+}
+
+body.dark-mode .button-text {
+color: #FFD843; /* Set the text color to a different color in dark mode */
+}
 	    
     </style>
 </head>
@@ -128,18 +142,34 @@
 </head>
 
     <div class="icon-bar">
-    <div class="nav-icons">
-        <a href="#"><i class="fa fa-chevron-circle-left"></i></a>
-        <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+        <div class="icon-container">
+            <a href="#"><i class="fa fa-chevron-circle-left"></i></a>
+            <span class="button-text">Previous Chapter</span>
+        </div>
+        <div class="icon-container">
+            <a href="#"><i class="fa fa-chevron-circle-right"></i></a>
+            <span class="button-text">Next Chapter</span>
+        </div>
     </div>
     <!-- Other icons ... -->
 </div>
 
     
 <div class="icon-bar">
-    <a href="#"><i class="fa fa-caret-square-o-up"></i></a>
-    <a href="#"><i class="fa fa-caret-square-o-right"></i></a>
-    <a href="#"><i class="fa fa-check-circle"></i></a>
+    <div class="button-container">
+        <a href="#" id="toggleImagesLeftButton"><i class="fa fa-caret-square-o-left"></i></a>
+        <span class="button-text">Right to left</span>
+    </div>
+    <div class="button-container">
+        <a href="#" id="verticalScrollButton"><i class="fa fa-caret-square-o-up"></i></a>
+        <span class="button-text">Vertical Scrolling</span>
+    </div>
+    <div class="button-container">
+        <a href="#" id="toggleImagesButton" disabled><i class="fa fa-caret-square-o-right"></i></a>
+        <span class="button-text">Left to Right</span>
+    </div>
+</div>
+    
 </div>
 
 <div class="manga-title">
@@ -151,8 +181,8 @@
     
 </div>
     
-     <div class="image-container">
-        <img src="https://asura.nacm.xyz/wp-content/uploads/2021/03/00-113.jpg" alt="Page 1">
+     <div class="image-container" style="direction: ltr;">
+       <img src="https://asura.nacm.xyz/wp-content/uploads/2021/03/00-113.jpg" alt="Page 1">
         <img src="https://asura.nacm.xyz/wp-content/uploads/2021/03/1-001-30.jpg" alt="Page 2">
         <img src="https://asura.nacm.xyz/wp-content/uploads/2021/03/1-002-31.jpg" alt="Page 3">
         <img src="https://asura.nacm.xyz/wp-content/uploads/2021/03/2-001-29.jpg" alt="Page 4">
@@ -167,6 +197,7 @@
         <img src="https://asura.nacm.xyz/wp-content/uploads/2021/03/6-002-9.jpg" alt="Page 13">
         <img src="https://asura.nacm.xyz/wp-content/uploads/2021/03/7-001-5.jpg" alt="Page 14">
         <img src="https://asura.nacm.xyz/wp-content/uploads/2021/03/7-002-5.jpg" alt="Page 15">
+        <img src="https://asura.nacm.xyz/wp-content/uploads/2020/10/ENDING-PAGE.jpg" alt="Page 16">
     </div>
     
     <style>
@@ -218,9 +249,109 @@
         margin-bottom: 0px; /* Adjust spacing between images */
     }
     
+    /* Vertical Display */
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.image-container.horizontal {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Hide vertical overflow */
+    white-space: nowrap; /* Prevent line breaks */
+    align-items: flex-start; /* Align items to the top */
+
+    /* Limit the width based on the available space */
+    width: calc(100% - 20px); /* Adjust as needed to account for margins/padding */
+    max-width: 100%; /* Ensure it doesn't exceed 100% of the screen width */
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 10px; /* Spacing between horizontally displayed images */
+}
+
+    
         }
       
     </style>
+    
+  <script>
+    const toggleImagesButton = document.getElementById("toggleImagesButton");
+    const toggleImagesLeftButton = document.getElementById("toggleImagesLeftButton");
+    const verticalScrollButton = document.getElementById("verticalScrollButton");
+    const imageContainer = document.querySelector(".image-container");
+    let isHorizontal = false; // Initially set to vertical
+    let isRTL = false; // Initially set to LTR
+
+    // Function to toggle horizontal mode
+    function toggleHorizontalMode() {
+        if (!isHorizontal) {
+            // Calculate the total width needed to fit all images horizontally
+            const totalWidth = Array.from(imageContainer.querySelectorAll("img")).reduce(
+                (width, img) => width + img.offsetWidth + 10, // Add 10px spacing between images
+                0
+            );
+            imageContainer.style.width = totalWidth + "px"; // Set the container width
+            imageContainer.classList.add("horizontal"); // Add the horizontal class
+            toggleImagesButton.removeAttribute("disabled"); // Enable the right button
+            toggleImagesLeftButton.removeAttribute("disabled"); // Enable the left button
+            isHorizontal = true;
+        }
+    }
+
+    // Event listener for the horizontal toggle button
+    toggleImagesButton.addEventListener("click", () => {
+        if (!isHorizontal || isRTL) {
+            // Switch to LTR direction
+            isRTL = false;
+            imageContainer.style.direction = "ltr";
+            // Reset scroll position to the start
+            imageContainer.scrollLeft = 0;
+        }
+        toggleHorizontalMode();
+    });
+
+    // Event listener for the left-to-right scroll button
+    toggleImagesLeftButton.addEventListener("click", () => {
+        if (!isHorizontal || !isRTL) {
+            // Switch to RTL direction
+            isRTL = true;
+            imageContainer.style.direction = "rtl";
+            // Set the scroll position to the start for RTL
+            imageContainer.scrollLeft = 0;
+        }
+        toggleHorizontalMode();
+    });
+
+    // Event listener for the vertical scroll button
+    verticalScrollButton.addEventListener("click", () => {
+        if (isHorizontal) {
+            // Toggle back to vertical mode
+            imageContainer.style.width = "auto";
+            imageContainer.classList.remove("horizontal");
+            isHorizontal = false;
+            toggleImagesButton.removeAttribute("disabled");
+            toggleImagesLeftButton.removeAttribute("disabled");
+        } else {
+            // Scroll accordingly
+            if (isRTL) {
+                // Scroll towards the right (right-to-left)
+                imageContainer.scrollLeft += 100; // Adjust scroll speed as needed
+            } else {
+                // Scroll towards the left (left-to-right)
+                imageContainer.scrollLeft -= 100; // Adjust scroll speed as needed
+            }
+        }
+    });
+</script>
+
 
     <footer class="footer">
         <p>&copy; 2023 Nubis Manga Reader. All rights reserved.</p>
