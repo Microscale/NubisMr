@@ -363,25 +363,60 @@ body.dark-mode .pagination-button {
 	
         <!-- Add more buttons for each chapter -->
         
-        <!-- Pagination (First Page) -->
-    <div class="pagination">
-        <button class="pagination-button">1</button>
-        <button class="pagination-button">2</button>
-        <button class="pagination-button">3</button>
-        <button class="pagination-button">4</button>
-        <button class="pagination-button">5</button>
-        <!-- Add more pagination buttons as needed -->
-    </div>
+     <!-- Pagination -->
+<div class="pagination" id="pagination">
+    <button class="pagination-button" data-page="1">1</button>
+    <button class="pagination-button" data-page="2">2</button>
+    <button class="pagination-button" data-page="3">3</button>
+    <button class="pagination-button" data-page="4">4</button>
+    <button class="pagination-button" data-page="5">5</button>
     
-    
-        
+    <!-- Add more pagination buttons as needed -->
+</div>
+
+    <script>
+    // Get references to the chapter list and pagination elements
+const chapterList = document.querySelector(".chapter-list");
+const pagination = document.getElementById("pagination");
+
+// Function to show chapters for the selected page
+function showChaptersForPage(page) {
+    // Get all chapter buttons
+    const chapterButtons = chapterList.querySelectorAll(".chapter-button");
+
+    // Hide all chapter buttons
+    chapterButtons.forEach((button) => {
+        button.style.display = "none"; // Hide all chapters by default
+    });
+
+    // Calculate the range of chapters to display on the current page
+    const itemsPerPage = 10; // Number of chapters per page
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = Math.min(startIndex + itemsPerPage, chapterButtons.length);
+
+    // Show chapters within the range
+    for (let i = startIndex; i < endIndex; i++) {
+        chapterButtons[i].style.display = "inline-block"; // Display chapters in a row
+    }
+}
+
+// Event listener for pagination buttons
+pagination.addEventListener("click", (event) => {
+    if (event.target.classList.contains("pagination-button")) {
+        const selectedPage = parseInt(event.target.getAttribute("data-page"));
+        showChaptersForPage(selectedPage);
+    }
+});
+
+// Initially, show chapters for the first page
+showChaptersForPage(1);
+
+</script>
+
       
     <footer class="footer">
         <p>&copy; 2023 Nubis Manga Reader. All rights reserved.</p>
     </footer>
 
-    <script>
-        /* ... (dark mode toggle script) ... */
-    </script>
 </body>
 </html>
