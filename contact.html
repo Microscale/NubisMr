@@ -254,16 +254,16 @@
             <div class="card-banner">
                 <img src="https://img.mensxp.com/media/content/2017/Oct/how-to-play-youtube-in-the-background-on-your-smartphone-1400x653-1508930254.jpg" alt="Logo">
             </div>
-            <h3>Instagram</h3>
-            <p>See our latest photos on Instagram.</p>
-            <a href="#">Visit Instagram</a>
+            <h3>YouTube</h3>
+            <p>See our latest videos on Youtube.</p>
+            <a href="https://www.youtube.com/channel/UCY5uqTD2otixTuSxYka-vjA">Visit Youtube</a>
         </div>
     </div>
 
     <!-- Contact Form -->
 <div class="contact-form">
     <h3>Contact Form</h3>
-    <form action="#" method="post">
+    <form action="https://formspree.io/f/xoqowdaj" method="post">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" placeholder="Your Message" required></textarea>
@@ -279,7 +279,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = $_POST["message"];
     
     // Set the recipient email address
-    $to = "t.rudyshen.c@hotmail.co.uk"; // Replace with your email address
+    $to = "#"; // Replace with your email address
 
     // Subject of the email
     $subject = "New contact form submission from $name";
