@@ -438,15 +438,17 @@ showChaptersForPage(1);
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 <style>
-	#disqus_thread {
-    background-color: #fff; /* Set a background color for Disqus in light mode */
-    color: #000; /* Set text color for Disqus in light mode */
-}
+    /* Light mode styles */
+    #disqus_thread {
+        background-color: #fff; /* Set a background color for Disqus in light mode */
+        color: #black; /* Set text color for Disqus in light mode */
+    }
 
-body.dark-mode #disqus_thread {
-    background-color: #333; /* Set a background color for Disqus in dark mode */
-    color: #fff; /* Set text color for Disqus in dark mode */
-}
+    /* Dark mode styles */
+    body.dark-mode #disqus_thread {
+        background-color: #333 !important; /* Set a background color for Disqus in dark mode */
+        color: #white !important; /* Set text color for Disqus in dark mode */
+    }
 </style>
 	
     <footer class="footer">
