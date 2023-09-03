@@ -450,6 +450,45 @@ showChaptersForPage(1);
         color: white !important; /* Set text color for Disqus in dark mode */
     }
 </style>
+
+<script>
+
+<script>
+    // Function to update Disqus styles based on dark mode
+    function updateDisqusStyles(isDarkMode) {
+        var disqusThread = document.getElementById('disqus_thread');
+        if (isDarkMode) {
+            disqusThread.style.backgroundColor = '#333';
+            disqusThread.style.color = 'white';
+        } else {
+            disqusThread.style.backgroundColor = '#fff';
+            disqusThread.style.color = 'black';
+        }
+    }
+
+    // Retrieve the dark mode preference from localStorage
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+
+    // Set dark mode based on the user's preference
+    setDarkMode(isDarkMode);
+
+    const darkModeToggle = document.getElementById("darkModeToggle");
+
+    darkModeToggle.addEventListener("click", () => {
+        // Toggle dark mode class on the body
+        document.body.classList.toggle("dark-mode");
+
+        // Update user's dark mode preference
+        const isDarkMode = document.body.classList.contains("dark-mode");
+        localStorage.setItem("darkMode", isDarkMode.toString());
+
+        // Update Disqus styles
+        updateDisqusStyles(isDarkMode);
+    });
+</script>
+
+	
+</script>
 	
     <footer class="footer">
         <p>&copy; 2023 Nubis Manga Reader. All rights reserved.</p>
