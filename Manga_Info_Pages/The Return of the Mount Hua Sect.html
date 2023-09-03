@@ -422,21 +422,26 @@ showChaptersForPage(1);
     /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
     var disqus_config = function () {
-    this.page.url = 'http://nubismr.com/Manga_Info_Pages/The%20Return%20of%20the%20Mount%20Hua%20Sect';  // Replace with your page's URL
-    this.page.identifier = 'The Return of the Mount Hua Sect'; // Replace with a unique identifier for the page
+        this.page.url = 'http://nubismr.com/Manga_Info_Pages/The%20Return%20of%20the%20Mount%20Hua%20Sect';  // Replace with your page's URL
+        this.page.identifier = 'The Return of the Mount Hua Sect'; // Replace with a unique identifier for the page
+
+        // Set Disqus color scheme based on your website's mode
+        if (document.body.classList.contains("dark-mode")) {
+            this.page['theme'] = 'dark';
+        } else {
+            this.page['theme'] = 'light';
+        }
     };
-    */
+
     (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://nubismr.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
+        var d = document, s = d.createElement('script');
+        s.src = 'https://nubismr.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
+	
 <style>
     /* Light mode styles */
     #disqus_thread {
@@ -450,46 +455,6 @@ showChaptersForPage(1);
         color: white !important; /* Set text color for Disqus in dark mode */
     }
 </style>
-
-<script>
-    // Function to set dark mode
-    function setDarkMode(isDark) {
-        document.body.classList.toggle("dark-mode", isDark);
-        
-        // Update user's dark mode preference
-        localStorage.setItem("darkMode", isDark.toString());
-        
-        // Update Disqus styles
-        var disqusThread = document.getElementById('disqus_thread');
-        if (isDark) {
-            disqusThread.style.backgroundColor = '#333';
-            disqusThread.style.color = 'white';
-        } else {
-            disqusThread.style.backgroundColor = '#fff';
-            disqusThread.style.color = 'black';
-        }
-    }
-
-    // Retrieve the dark mode preference from localStorage
-    const isDarkMode = localStorage.getItem("darkMode") === "true";
-
-    // Set dark mode based on the user's preference
-    setDarkMode(isDarkMode);
-
-    const darkModeToggle = document.getElementById("darkModeToggle");
-
-    darkModeToggle.addEventListener("click", () => {
-        // Toggle dark mode class on the body
-        document.body.classList.toggle("dark-mode");
-
-        // Update user's dark mode preference
-        const isDarkMode = document.body.classList.contains("dark-mode");
-        localStorage.setItem("darkMode", isDarkMode.toString());
-
-        // Update Disqus styles
-        setDarkMode(isDarkMode);
-    });
-</script>
 	
     <footer class="footer">
         <p>&copy; 2023 Nubis Manga Reader. All rights reserved.</p>
