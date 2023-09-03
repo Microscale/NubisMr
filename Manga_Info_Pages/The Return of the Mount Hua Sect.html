@@ -423,6 +423,10 @@ showChaptersForPage(1);
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
     var disqus_config = function () {
+function updateDisqusConfiguration(theme) {
+    DISQUS.reset({
+        reload: true,
+        config: function () {
         this.page.url = 'http://nubismr.com/Manga_Info_Pages/The%20Return%20of%20the%20Mount%20Hua%20Sect';  // Replace with your page's URL
         this.page.identifier = 'The Return of the Mount Hua Sect'; // Replace with a unique identifier for the page
 
