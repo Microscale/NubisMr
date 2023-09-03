@@ -417,7 +417,9 @@ showChaptersForPage(1);
 </script>
 
 
-	<div id="disqus_thread"></div>
+<div id="disqus-container">
+    <div id="disqus_thread"></div>
+</div>
 <script>
     /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -438,33 +440,17 @@ showChaptersForPage(1);
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 	
 <style>
- /* --- disqus css -- */
-
-#disqus_thread {
-color: #ffffff;
-border-style: 0px solid;
-border-color: #cccccc;
-padding: 5px;
+/* Light mode styles */
+#disqus-container {
+    background-color: #fff; /* Light mode background color */
+    color: #000; /* Light mode text color */
 }
 
-#dsq-content #dsq-comments .dsq-comment-body {
-color: #fff;
-background-color: #black;
+/* Dark mode styles */
+body.dark-mode #disqus-container {
+    background-color: #333; /* Dark mode background color */
+    color: #fff; /* Dark mode text color */
 }
-
-.dsq-reaction-body {
-color: #fff;
-}
-
-.dsq-reaction-header cite, .dsq-reaction-header span {
-color: #ccc;
-}
-
-.dsq-reaction-retweets {
-color: #ccc;
-}
-
-/*--- end disqus css --*/
 </style>
 	
     <footer class="footer">
