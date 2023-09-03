@@ -437,7 +437,18 @@ showChaptersForPage(1);
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-      
+<style>
+	#disqus_thread {
+    background-color: #fff; /* Set a background color for Disqus in light mode */
+    color: #000; /* Set text color for Disqus in light mode */
+}
+
+body.dark-mode #disqus_thread {
+    background-color: #333; /* Set a background color for Disqus in dark mode */
+    color: #fff; /* Set text color for Disqus in dark mode */
+}
+</style>
+	
     <footer class="footer">
         <p>&copy; 2023 Nubis Manga Reader. All rights reserved.</p>
     </footer>
