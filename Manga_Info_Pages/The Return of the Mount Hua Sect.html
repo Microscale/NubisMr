@@ -452,12 +452,16 @@ showChaptersForPage(1);
 </style>
 
 <script>
-
-<script>
-    // Function to update Disqus styles based on dark mode
-    function updateDisqusStyles(isDarkMode) {
+    // Function to set dark mode
+    function setDarkMode(isDark) {
+        document.body.classList.toggle("dark-mode", isDark);
+        
+        // Update user's dark mode preference
+        localStorage.setItem("darkMode", isDark.toString());
+        
+        // Update Disqus styles
         var disqusThread = document.getElementById('disqus_thread');
-        if (isDarkMode) {
+        if (isDark) {
             disqusThread.style.backgroundColor = '#333';
             disqusThread.style.color = 'white';
         } else {
@@ -483,11 +487,8 @@ showChaptersForPage(1);
         localStorage.setItem("darkMode", isDarkMode.toString());
 
         // Update Disqus styles
-        updateDisqusStyles(isDarkMode);
+        setDarkMode(isDarkMode);
     });
-</script>
-
-	
 </script>
 	
     <footer class="footer">
