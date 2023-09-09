@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/NyxrmGp/Nubis-Manga-Icon-2.png"> <!-- Replace "favicon.png" with your actual favicon image file name and extension -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/NyxrmGp/Nubis-Manga-Icon-2.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/NyxrmGp/Nubis-Manga-Icon-2.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://i.ibb.co/NyxrmGp/Nubis-Manga-Icon-2.png">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            color: black;
+            text-align: center;
+            text-transform: uppercase; /* Capitalize all text */
+        }
+        body.dark-mode {
+            background-color: #262626;
+            color: white;
+        }
+        .header {
+            background-color: #FFD843;
+            color: black;
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .main-menu {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .main-menu a {
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+            color: black;
+        }
+        .main-menu a:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .dark-mode-button {
+            background-color: transparent;
+            border: none;
+            color: black;
+            cursor: pointer;
+            font-size: 18px;
+            transition: color 0.3s ease;
+            margin-top: 10px;
+        }
+        .dark-mode-button:hover {
+            color: #FFD843;
+        }
+        .footer {
+            background-color: #FFD843;
+            color: black;
+            text-align: center;
+            padding: 0rem;
+            position: relative;
+            width: 100%;
+            bottom: 0px;
+            margin-top: 20px;
+ 	    padding-top: 1rem;
+	    padding-bottom: 1rem;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            z-index: 999;
+            border-radius: 25%;
+        }
+        .logo img {
+            width: 50%;
+        }
+
+ /* Media query to hide the logo on smaller screens */
+@media (max-width: 468px) {
+    .logo {
+        display: none;
+    }
+}
+
+.button-text {
+    font-size: 7px;
+    color: #333;
+    text-align: center;
+    display: block; /* Ensures each text is on a new line */
+    margin-left: 3.5px;
+    margin-right: 3.5px;
+    margin-top: 1px;
+}
+
+body.dark-mode .button-text {
+color: #FFD843; /* Set the text color to a different color in dark mode */
+}
+	    
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="https://i.ibb.co/NyxrmGp/Nubis-Manga-Icon-2.png" alt="Logo">
+        </div>
+        <div class="main-menu">
+            <a href="http://nubismr.com/" style="color: white;">Home</a> |
+            <a href="http://nubismr.com/about" style="color: white;">About</a> |
+            <a href="http://nubismr.com/contact" style="color: white;">Contact</a> |
+            <a href="http://nubismr.com/manga_library" style="color: white;">Library</a>
+        </div>
+        
+        
+        <button class="dark-mode-button" id="darkModeToggle">🌑</button>
+    </div>
+    
+    <script>
+    // Retrieve the dark mode preference from localStorage
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+
+    // Function to set dark mode
+    function setDarkMode(isDark) {
+        document.body.classList.toggle("dark-mode", isDark);
+    }
+
+    // Set dark mode based on the user's preference
+    setDarkMode(isDarkMode);
+
+    const darkModeToggle = document.getElementById("darkModeToggle");
+
+    darkModeToggle.addEventListener("click", () => {
+        // Toggle dark mode class on the body
+        document.body.classList.toggle("dark-mode");
+
+        // Update user's dark mode preference
+        const isDarkMode = document.body.classList.contains("dark-mode");
+        localStorage.setItem("darkMode", isDarkMode.toString());
+    });
+</script>
+    
+    <head>
+    <!-- ... Your existing meta tags and other styles ... -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+    <div class="icon-bar">
+        <div class="icon-container">
+            <a href="https://nubismr.com/MangaReaderView/Return%20of%20the%20Mount%20Hua%20Sect/Chapter%204"><i class="fa fa-chevron-circle-left"></i></a>
+            <span class="button-text">Previous Chapter</span>
+        </div>
+        <div class="icon-container">
+            <a href="https://nubismr.com/MangaReaderView/Return%20of%20the%20Mount%20Hua%20Sect/Chapter%206"><i class="fa fa-chevron-circle-right"></i></a>
+            <span class="button-text">Next Chapter</span>
+        </div>
+    </div>
+    <!-- Other icons ... -->
+</div>
+
+    
+<div class="icon-bar">
+    <div class="button-container">
+        <a href="#" id="toggleImagesLeftButton"><i class="fa fa-caret-square-o-left"></i></a>
+        <span class="button-text">Right to left</span>
+    </div>
+    <div class="button-container">
+        <a href="#" id="verticalScrollButton"><i class="fa fa-caret-square-o-up"></i></a>
+        <span class="button-text">Vertical Scrolling</span>
+    </div>
+    <div class="button-container">
+        <a href="#" id="toggleImagesButton" disabled><i class="fa fa-caret-square-o-right"></i></a>
+        <span class="button-text">Left to Right</span>
+    </div>
+</div>
+    
+</div>
+
+<div class="manga-title">
+        <h2>Return of the Mount Hua Sect</h2>
+    </div>
+
+    <!-- Add more icon buttons as needed -->
+</div>
+    
+</div>
+    
+     <div class="image-container" style="direction: ltr;">
+       <img src="https://asuracomics.com/wp-content/uploads/2021/03/00-128.jpg" alt="Page 1">
+<img src="https://asuracomics.com/wp-content/uploads/2021/03/1-001-41.jpg" alt="Page 2">
+<img src="https://asuracomics.com/wp-content/uploads/2021/03/1-002-41.jpg" alt="Page 3">
+<img src="https://asuracomics.com/wp-content/uploads/2021/03/2-001-39.jpg" alt="Page 4">
+<img src="https://asuracomics.com/wp-content/uploads/2021/03/2-002-39.jpg" alt="Page 5">
+<img src="https://asuracomics.com/wp-content/uploads/2021/03/3-001-36.jpg" alt="Page 6">
+<img src="https://asuracomics.com/wp-content/uploads/2021/03/3-002-37.jpg" alt="Page 7">
+<img src="https://asuracomics.com/wp-content/uploads/2021/03/4-001-28.jpg" alt="Page 8">
+<img src="https://asuracomics.com/wp-content/uploads/2021/03/4-002-28.jpg" alt="Page 9">
+<img src="https://asuracomics.com/wp-content/uploads/2021/03/5-001-21.jpg" alt="Page 10">
+<img src="https://asuracomics.com/wp-content/uploads/2021/03/5-002-21.jpg" alt="Page 11">
+<img src="https://asuracomics.com/wp-content/uploads/2021/03/6-001-15.jpg" alt="Page 12">
+<img src="https://asuracomics.com/wp-content/uploads/2021/03/6-002-15.jpg" alt="Page 13">
+        <img src="https://asura.nacm.xyz/wp-content/uploads/2020/10/ENDING-PAGE.jpg" alt="Page 14">
+    </div>
+    
+    <style>
+    
+    .icon-bar {
+        background-color: #f2f2f2; /* Light gray background */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        transition: background-color 0.3s ease;
+        margin-top: 10px;
+    }
+
+    /* Dark Mode */
+    body.dark-mode .icon-bar {
+        background-color: #333; /* Dark gray background for dark mode */
+    }
+
+    .icon-bar a {
+        display: inline-block;
+        margin: 0 20px; /* Adjust spacing */
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .icon-bar a:hover {
+        opacity: 0.7; /* Reduce opacity on hover */
+        background: black;
+    }
+
+    .icon-bar i {
+        font-size: 24px; /* Adjust icon size */
+        color: #FFD843; /* Set the icon color to yellow */
+    }
+
+      
+      .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px; /* Adjust as needed */
+        margin-bottom: 30px; /* Adjust as needed */
+    }
+
+    .image-container img {
+        max-width: 100%;
+        height: auto%;
+        margin-bottom: 0px; /* Adjust spacing between images */
+    }
+    
+    /* Vertical Display */
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.image-container.horizontal {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Hide vertical overflow */
+    white-space: nowrap; /* Prevent line breaks */
+    align-items: flex-start; /* Align items to the top */
+
+    /* Limit the width based on the available space */
+    width: calc(100% - 20px); /* Adjust as needed to account for margins/padding */
+    max-width: 100%; /* Ensure it doesn't exceed 100% of the screen width */
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 10px; /* Spacing between horizontally displayed images */
+}
+
+    
+        }
+      
+    </style>
+    
+  <script>
+    const toggleImagesButton = document.getElementById("toggleImagesButton");
+    const toggleImagesLeftButton = document.getElementById("toggleImagesLeftButton");
+    const verticalScrollButton = document.getElementById("verticalScrollButton");
+    const imageContainer = document.querySelector(".image-container");
+    let isHorizontal = false; // Initially set to vertical
+    let isRTL = false; // Initially set to LTR
+
+    // Function to toggle horizontal mode
+    function toggleHorizontalMode() {
+        if (!isHorizontal) {
+            // Calculate the total width needed to fit all images horizontally
+            const totalWidth = Array.from(imageContainer.querySelectorAll("img")).reduce(
+                (width, img) => width + img.offsetWidth + 10, // Add 10px spacing between images
+                0
+            );
+            imageContainer.style.width = totalWidth + "px"; // Set the container width
+            imageContainer.classList.add("horizontal"); // Add the horizontal class
+            toggleImagesButton.removeAttribute("disabled"); // Enable the right button
+            toggleImagesLeftButton.removeAttribute("disabled"); // Enable the left button
+            isHorizontal = true;
+        }
+    }
+
+    // Event listener for the horizontal toggle button
+    toggleImagesButton.addEventListener("click", () => {
+        if (!isHorizontal || isRTL) {
+            // Switch to LTR direction
+            isRTL = false;
+            imageContainer.style.direction = "ltr";
+            // Reset scroll position to the start
+            imageContainer.scrollLeft = 0;
+        }
+        toggleHorizontalMode();
+    });
+
+    // Event listener for the left-to-right scroll button
+    toggleImagesLeftButton.addEventListener("click", () => {
+        if (!isHorizontal || !isRTL) {
+            // Switch to RTL direction
+            isRTL = true;
+            imageContainer.style.direction = "rtl";
+            // Set the scroll position to the start for RTL
+            imageContainer.scrollLeft = 0;
+        }
+        toggleHorizontalMode();
+    });
+
+    // Event listener for the vertical scroll button
+    verticalScrollButton.addEventListener("click", () => {
+        if (isHorizontal) {
+            // Toggle back to vertical mode
+            imageContainer.style.width = "auto";
+            imageContainer.classList.remove("horizontal");
+            isHorizontal = false;
+            toggleImagesButton.removeAttribute("disabled");
+            toggleImagesLeftButton.removeAttribute("disabled");
+        } else {
+            // Scroll accordingly
+            if (isRTL) {
+                // Scroll towards the right (right-to-left)
+                imageContainer.scrollLeft += 100; // Adjust scroll speed as needed
+            } else {
+                // Scroll towards the left (left-to-right)
+                imageContainer.scrollLeft -= 100; // Adjust scroll speed as needed
+            }
+        }
+    });
+</script>
+
+<div class="icon-bar">
+        <div class="icon-container">
+            <a href="https://nubismr.com/MangaReaderView/Return%20of%20the%20Mount%20Hua%20Sect/Chapter%207"><i class="fa fa-chevron-circle-left"></i></a>
+            <span class="button-text">Previous Chapter</span>
+        </div>
+        <div class="icon-container">
+            <a href="https://nubismr.com/MangaReaderView/Return%20of%20the%20Mount%20Hua%20Sect/Chapter%209.html"><i class="fa fa-chevron-circle-right"></i></a>
+            <span class="button-text">Next Chapter</span>
+        </div>
+    </div>
+    <!-- Other icons ... -->
+</div>
+
+</script>
+
+<div id="disqus-container">
+    <div id="disqus_thread"></div>
+</div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = https://nubismr.com/MangaReaderView/Return%20of%20the%20Mount%20Hua%20Sect/Chapter%208;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = The Return of the Mount Hua Sect Chapter 8; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://nubismr.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	
+<style>
+/* Light mode styles */
+#disqus-container {
+    background-color: #262626; /* Light mode background color */
+    margin: 20px;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+#disqus_thread {
+   margin-top: 10px;
+   margin-bottom: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+
+}
+
+#disqus_thread a {
+    color: #ffd843; 
+}
+</style>
+
+    <footer class="footer">
+        <p>&copy; 2023 Nubis Manga Reader. All rights reserved.</p>
+    </footer>
+</body>
+</html>
